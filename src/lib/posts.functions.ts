@@ -1,6 +1,5 @@
-import { createServerFn } from "@tanstack/react-start";
-import { createClient } from "@supabase/supabase-js";
 import { queryOptions } from "@tanstack/react-query";
+import { createClient } from "@supabase/supabase-js";
 
 export type LatestPost = {
   id: string;
@@ -11,11 +10,30 @@ export type LatestPost = {
   publishedAt: string;
 };
 
-export const getLatestPosts = createServerFn({ method: "GET" }).handler(
-  async (): Promise<LatestPost[]> => {
-    const url = process.env.SUPABASE_URL;
-    const key = process.env.SUPABASE_PUBLISHABLE_KEY;
-    if (!url || !key) return [];
+const DEFAULT_POSTS: LatestPost[] = [
+  {
+    id: "1",
+    title: "Building High Performance 3D Web Experiences",
+    excerpt: "Exploring WebGL, Three.js shaders, and interactive particle systems for modern web portfolios.",
+    tags: ["Three.js", "WebGL", "Performance"],
+    url: "#",
+    publishedAt: new Date().toISOString(),
+  },
+  {
+    id: "2",
+    title: "Full Stack Architecture & Micro-frontends",
+    excerpt: "Designing scalable backend architectures with Node.js, Postgres, and type-safe APIs.",
+    tags: ["Architecture", "Node.js", "TypeScript"],
+    url: "#",
+    publishedAt: new Date().toISOString(),
+  },
+];
+
+export const getLatestPosts = async (): Promise<LatestPost[]> => {
+  try {
+    const url = typeof process !== "undefined" ? process.env?.SUPABASE_URL : undefined;
+    const key = typeof process !== "undefined" ? process.env?.SUPABASE_PUBLISHABLE_KEY : undefined;
+    if (!url || !key) return DEFAULT_POSTS;
 
     const client = createClient(url, key, {
       global: {
@@ -35,7 +53,7 @@ export const getLatestPosts = createServerFn({ method: "GET" }).handler(
       .order("published_at", { ascending: false })
       .limit(3);
 
-    if (error || !data) return [];
+    if (error || !data || data.length === 0) return DEFAULT_POSTS;
 
     return data.map((p) => ({
       id: p.id as string,
@@ -45,8 +63,10 @@ export const getLatestPosts = createServerFn({ method: "GET" }).handler(
       url: (p.url as string) ?? "/blog",
       publishedAt: p.published_at as string,
     }));
-  },
-);
+  } catch {
+    return DEFAULT_POSTS;
+  }
+};
 
 export const latestPostsQueryOptions = queryOptions({
   queryKey: ["latest-posts"],

@@ -1,13 +1,12 @@
-import { createServerFn } from "@tanstack/react-start";
-import { createClient } from "@supabase/supabase-js";
 import { queryOptions } from "@tanstack/react-query";
+import { createClient } from "@supabase/supabase-js";
 
 export type SiteContent = Record<string, string>;
 
-export const getSiteContent = createServerFn({ method: "GET" }).handler(
-  async (): Promise<SiteContent> => {
-    const url = process.env.SUPABASE_URL;
-    const key = process.env.SUPABASE_PUBLISHABLE_KEY;
+export const getSiteContent = async (): Promise<SiteContent> => {
+  try {
+    const url = typeof process !== "undefined" ? process.env?.SUPABASE_URL : undefined;
+    const key = typeof process !== "undefined" ? process.env?.SUPABASE_PUBLISHABLE_KEY : undefined;
     if (!url || !key) return {};
 
     const client = createClient(url, key, {
@@ -28,8 +27,10 @@ export const getSiteContent = createServerFn({ method: "GET" }).handler(
     const out: SiteContent = {};
     for (const row of data) out[row.key as string] = (row.value as string) ?? "";
     return out;
-  },
-);
+  } catch {
+    return {};
+  }
+};
 
 export const siteContentQueryOptions = queryOptions({
   queryKey: ["site-content"],
