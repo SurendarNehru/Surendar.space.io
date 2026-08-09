@@ -42,6 +42,10 @@ assert(fs.existsSync(faviconPath), 'public/favicon.png exists');
 const deployWf = path.resolve('.github/workflows/deploy.yml');
 assert(fs.existsSync(deployWf), '.github/workflows/deploy.yml exists');
 
+// Test 5: Root index.html check
+const indexHtmlPath = path.resolve('index.html');
+assert(fs.existsSync(indexHtmlPath), 'index.html exists for static hosting');
+
 console.log(`\nTest Results: ${passed} passed, ${failed} failed.`);
 
 if (failed > 0) {
