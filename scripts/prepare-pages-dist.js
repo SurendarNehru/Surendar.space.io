@@ -58,7 +58,7 @@ if (fs.existsSync(rootIndexHtml)) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Surendar — Personal Portfolio</title>
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
   </head>
   <body class="min-h-screen bg-[#050508] text-white">
     <div id="root"></div>
@@ -68,7 +68,10 @@ if (fs.existsSync(rootIndexHtml)) {
   fs.writeFileSync(target404Html, fallbackHtml, 'utf-8');
 }
 
-// Guarantee CNAME is present for surendar.space
-fs.writeFileSync(path.join(distDir, 'CNAME'), 'surendar.space\n', 'utf-8');
+// Remove dist/CNAME if present to allow default github.io URL
+const cnameInDist = path.join(distDir, 'CNAME');
+if (fs.existsSync(cnameInDist)) {
+  fs.unlinkSync(cnameInDist);
+}
 
-console.log('Deployment dist directory prepared successfully with index.html, 404.html, and CNAME.');
+console.log('Deployment dist directory prepared successfully for https://surendarnehru.github.io/Surendar.space.io/.');

@@ -127,7 +127,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-      url: https://surendar.space
+      url: https://surendarnehru.github.io/Surendar.space.io/
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
