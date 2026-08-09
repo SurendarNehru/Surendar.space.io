@@ -25,13 +25,14 @@ function copyDirSync(src, dest) {
   }
 }
 
-console.log('Preparing production deployment bundle in dist/ ...');
+console.log('Preparing production bundle for GitHub Pages...');
 
+// Step 1: Copy built assets
 if (fs.existsSync(outputPublic)) {
-  console.log('Found Nitro output in .output/public, syncing to dist/');
+  console.log('Syncing .output/public -> dist/');
   copyDirSync(outputPublic, distDir);
 } else if (fs.existsSync(distClient)) {
-  console.log('Found client build in dist/client, syncing to dist/');
+  console.log('Syncing dist/client -> dist/');
   copyDirSync(distClient, distDir);
 }
 
@@ -39,39 +40,27 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
-// Sync public assets directly into dist/
+// Step 2: Sync public folder assets into dist/
 if (fs.existsSync(publicDir)) {
   copyDirSync(publicDir, distDir);
 }
 
-// Ensure index.html and 404.html exist in dist/
+// Step 3: Check for compiled index.html
 const targetIndexHtml = path.join(distDir, 'index.html');
 const target404Html = path.join(distDir, '404.html');
 
-if (fs.existsSync(rootIndexHtml)) {
-  fs.copyFileSync(rootIndexHtml, targetIndexHtml);
-  fs.copyFileSync(rootIndexHtml, target404Html);
-} else if (!fs.existsSync(targetIndexHtml)) {
-  const fallbackHtml = `<!DOCTYPE html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Surendar — Personal Portfolio</title>
-    <link rel="icon" type="image/png" href="./favicon.png" />
-  </head>
-  <body class="min-h-screen bg-[#050508] text-white">
-    <div id="root"></div>
-  </body>
-</html>`;
-  fs.writeFileSync(targetIndexHtml, fallbackHtml, 'utf-8');
-  fs.writeFileSync(target404Html, fallbackHtml, 'utf-8');
+if (fs.existsSync(targetIndexHtml)) {
+  let html = fs.readFileSync(targetIndexHtml, 'utf-8');
+  // Ensure relative asset paths for GitHub Pages subpath
+  html = html.replace(/(href|src)=["']\/([^"']+)["']/g, '$1="./$2"');
+  fs.writeFileSync(targetIndexHtml, html, 'utf-8');
+  fs.writeFileSync(target404Html, html, 'utf-8');
+  console.log('Successfully processed compiled dist/index.html and created dist/404.html.');
+} else if (fs.existsSync(rootIndexHtml)) {
+  console.log('Copying root index.html to dist/');
+  let html = fs.readFileSync(rootIndexHtml, 'utf-8');
+  fs.writeFileSync(targetIndexHtml, html, 'utf-8');
+  fs.writeFileSync(target404Html, html, 'utf-8');
 }
 
-// Remove dist/CNAME if present to allow default github.io URL
-const cnameInDist = path.join(distDir, 'CNAME');
-if (fs.existsSync(cnameInDist)) {
-  fs.unlinkSync(cnameInDist);
-}
-
-console.log('Deployment dist directory prepared successfully for https://surendarnehru.github.io/Surendar.space.io/.');
+console.log('Deployment dist directory prepared successfully.');
