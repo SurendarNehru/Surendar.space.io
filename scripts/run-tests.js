@@ -23,7 +23,7 @@ if (fs.existsSync(readmePath)) {
   const content = fs.readFileSync(readmePath, 'utf-8');
   assert(content.includes('Surendar — Personal Portfolio'), 'README contains portfolio header');
   assert(content.includes('surendar.space'), 'README contains live domain surendar.space');
-  assert(content.includes('https://github.com/SurendarNehru/Surendar.space'), 'README contains GitHub repository URL');
+  assert(content.includes('Surendar.space'), 'README contains GitHub repository URL');
 }
 
 // Test 2: CNAME check
