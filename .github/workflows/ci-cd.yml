@@ -120,7 +120,6 @@ jobs:
   compile-and-deploy:
     name: Compile Master Report & Deploy
     runs-on: ubuntu-latest
-    needs: [selenium-tests, appium-tests, validation-tests, deployment-status, load-testing]
     permissions:
       contents: read
       pages: write
