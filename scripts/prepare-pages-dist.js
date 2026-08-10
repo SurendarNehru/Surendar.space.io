@@ -51,8 +51,6 @@ const target404Html = path.join(distDir, '404.html');
 
 if (fs.existsSync(targetIndexHtml)) {
   let html = fs.readFileSync(targetIndexHtml, 'utf-8');
-  // Ensure relative asset paths for GitHub Pages subpath
-  html = html.replace(/(href|src)=["']\/([^"']+)["']/g, '$1="./$2"');
   fs.writeFileSync(targetIndexHtml, html, 'utf-8');
   fs.writeFileSync(target404Html, html, 'utf-8');
   console.log('Successfully processed compiled dist/index.html and created dist/404.html.');
