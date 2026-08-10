@@ -1,4 +1,4 @@
-name: Deploy Portfolio to GitHub Pages
+name: CI/CD Deployment Pipeline
 
 on:
   push:
@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
-    name: Build & Deploy Portfolio
+  deploy:
+    name: Build & Deploy Portfolio to GitHub Pages
     runs-on: ubuntu-latest
     environment:
       name: github-pages
