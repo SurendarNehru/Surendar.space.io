@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+<<<<<<< HEAD
 import { useQuery } from "@tanstack/react-query";
+=======
+import { useSuspenseQuery } from "@tanstack/react-query";
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 import { GlassCard } from "../components/GlassCard";
 import { projectsQueryOptions } from "../lib/projects.functions";
 import { siteContentQueryOptions } from "../lib/content.functions";
@@ -17,6 +21,7 @@ export const Route = createFileRoute("/projects")({
     ],
   }),
   loader: async ({ context }) => {
+<<<<<<< HEAD
     try {
       await Promise.all([
         context.queryClient.ensureQueryData(projectsQueryOptions),
@@ -25,18 +30,28 @@ export const Route = createFileRoute("/projects")({
     } catch {
       // Allow page to render with fallbacks if network fails
     }
+=======
+    await Promise.all([
+      context.queryClient.ensureQueryData(projectsQueryOptions),
+      context.queryClient.ensureQueryData(siteContentQueryOptions),
+    ]);
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   },
   errorComponent: ({ error }) => (
     <div role="alert" className="px-6 py-24 text-white/70">
       {error.message}
     </div>
   ),
+<<<<<<< HEAD
   notFoundComponent: () => <div className="px-6 py-24 text-white/70">Not found.</div>,
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   component: Projects,
 });
 
 function Projects() {
   const t = useSiteContent();
+<<<<<<< HEAD
   const { data: projects = [] } = useQuery(projectsQueryOptions);
 
   return (
@@ -45,6 +60,16 @@ function Projects() {
         {t("projects_eyebrow", "Projects")}
       </p>
       <h1 className="mt-3 text-3xl min-[380px]:text-4xl sm:text-5xl font-semibold text-white">
+=======
+  const { data: projects } = useSuspenseQuery(projectsQueryOptions);
+
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-24">
+      <p className="text-xs uppercase tracking-[0.3em] text-white/50">
+        {t("projects_eyebrow", "Projects")}
+      </p>
+      <h1 className="mt-3 text-5xl font-semibold text-white">
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         {t("projects_heading", "Selected work")}
       </h1>
       <div className="mt-10 grid gap-6 md:grid-cols-2">

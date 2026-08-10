@@ -103,6 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+<<<<<<< HEAD
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -123,6 +124,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
+=======
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "shortcut icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
     ],
   }),
   shellComponent: RootShell,
@@ -133,6 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
+<<<<<<< HEAD
     <html lang="en" className="dark">
       <head>
         <HeadContent />
@@ -142,6 +150,11 @@ function RootShell({ children }: { children: ReactNode }) {
         <Scripts />
       </body>
     </html>
+=======
+    <div className="min-h-screen bg-[#050508] text-white antialiased">
+      {children}
+    </div>
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   );
 }
 
@@ -166,9 +179,13 @@ function RootComponent() {
         )}
         <Navbar />
         <main className="relative z-10">
+<<<<<<< HEAD
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
+=======
+          <Outlet />
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         </main>
         {!onStargaze && <SiteFooter />}
       </SkyThemeProvider>

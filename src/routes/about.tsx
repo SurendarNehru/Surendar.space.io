@@ -14,6 +14,7 @@ export const Route = createFileRoute("/about")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
+<<<<<<< HEAD
   loader: async ({ context }) => {
     try {
       await context.queryClient.ensureQueryData(siteContentQueryOptions);
@@ -21,6 +22,9 @@ export const Route = createFileRoute("/about")({
       // Safe fallback
     }
   },
+=======
+  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQueryOptions),
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   errorComponent: ({ error }) => (
     <div role="alert" className="px-6 py-24 text-white/70">
       {error.message}
@@ -34,9 +38,15 @@ function About() {
   const t = useSiteContent();
 
   return (
+<<<<<<< HEAD
     <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-24">
       <p className="text-xs uppercase tracking-[0.3em] text-white/50">About</p>
       <h1 className="mt-3 text-3xl min-[380px]:text-4xl sm:text-5xl font-semibold text-white">
+=======
+    <section className="mx-auto max-w-4xl px-6 py-24">
+      <p className="text-xs uppercase tracking-[0.3em] text-white/50">About</p>
+      <h1 className="mt-3 text-5xl font-semibold text-white">
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         {t("about_page_heading", "Surendar")}
       </h1>
       <p className="mt-6 max-w-2xl text-white/70">

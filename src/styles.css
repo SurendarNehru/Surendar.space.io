@@ -1,11 +1,15 @@
+<<<<<<< HEAD
 @import url('https://db.onlinewebfonts.com/c/b440614f80c8a8abc990ba341ae9ddf0?family=CS+Antlia+Demo');
 @import url('https://db.onlinewebfonts.com/c/762a9bb65368774a2ee6737334b50151?family=CS+Robert+Demo');
 @import url('https://db.onlinewebfonts.com/c/e3badf656b90773d2c9f499d64b8a015?family=CS+Robert+Mono+Demo');
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
 
+<<<<<<< HEAD
 @font-face {
   font-family: 'CS Antlia Drawn';
   src: url('https://db.onlinewebfonts.com/t/b440614f80c8a8abc990ba341ae9ddf0.woff2') format('woff2'),
@@ -66,6 +70,8 @@
   font-display: swap;
 }
 
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -89,9 +95,12 @@
  */
 
 @theme inline {
+<<<<<<< HEAD
   --font-sans: 'Pixelify Sans', 'Silkscreen', 'VT323', 'CS Antlia Drawn', 'CS Robert', 'Press Start 2P', monospace, sans-serif;
   --font-mono: 'Pixelify Sans', 'Silkscreen', 'VT323', 'Press Start 2P', monospace;
   --font-serif: 'Pixelify Sans', 'Silkscreen', 'VT323', 'CS Antlia Drawn', serif;
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -271,6 +280,7 @@
   background: rgb(255 255 255 / 0.46);
   border-color: rgb(11 37 69 / 0.16);
 }
+<<<<<<< HEAD
 
 /* Global Arcade Video Game Font Enforcement across ALL elements */
 :root {
@@ -321,3 +331,5 @@ h1, h2, h3, h4, h5, h6 {
 .text-2xl { font-size: clamp(1.15rem, 2vw, 1.5rem) !important; line-height: 1.3; }
 .text-xl  { font-size: clamp(1.05rem, 1.6vw, 1.3rem) !important; }
 .text-lg  { font-size: clamp(0.95rem, 1.4vw, 1.15rem) !important; }
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba

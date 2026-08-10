@@ -23,9 +23,14 @@ export function SiteStyle() {
   const text = get("ui_text_color");
   const muted = get("ui_muted_color");
   const bg = get("ui_bg_color");
+<<<<<<< HEAD
   const minecraftFont = "'Pixelify Sans', 'Silkscreen', 'VT323', 'CS Antlia Drawn', 'CS Robert', 'Press Start 2P', monospace, sans-serif";
   const headingFont = get("ui_heading_font") || minecraftFont;
   const bodyFont = get("ui_body_font") || minecraftFont;
+=======
+  const headingFont = get("ui_heading_font");
+  const bodyFont = get("ui_body_font");
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   const fontUrl = get("ui_font_url");
   const radius = get("ui_radius");
   const glassBg = get("ui_glass_bg");
@@ -52,8 +57,13 @@ ${vars}
 }
 ${bg ? `body{background-color:${bg};}` : ""}
 ${text ? `body,main{color:${text};}` : ""}
+<<<<<<< HEAD
 *, *::before, *::after, body{font-family:${bodyFont} !important;}
 h1,h2,h3,h4,h5,h6{font-family:${headingFont} !important;}
+=======
+${bodyFont ? `body{font-family:${bodyFont};}` : ""}
+${headingFont ? `h1,h2,h3,h4{font-family:${headingFont};}` : ""}
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 ${headingWeight ? `h1,h2,h3{font-weight:${headingWeight};}` : ""}
 ${letterSpacing ? `h1,h2{letter-spacing:${letterSpacing};}` : ""}
 ${muted ? `.text-white\\/60,.text-white\\/50,.text-white\\/70{color:${muted};}` : ""}
@@ -66,9 +76,12 @@ ${customCss ?? ""}
 
   return (
     <>
+<<<<<<< HEAD
       <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/b440614f80c8a8abc990ba341ae9ddf0?family=CS+Antlia+Demo" />
       <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/762a9bb65368774a2ee6737334b50151?family=CS+Robert+Demo" />
       <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/e3badf656b90773d2c9f499d64b8a015?family=CS+Robert+Mono+Demo" />
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       {fontUrl ? <link rel="stylesheet" href={fontUrl} /> : null}
       <style dangerouslySetInnerHTML={{ __html: css }} />
     </>

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 import { Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -12,8 +15,11 @@ import {
   Moon,
   SunMoon,
   Lock,
+<<<<<<< HEAD
   Menu,
   X,
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   type LucideIcon,
 } from "lucide-react";
 import { useSkyTheme } from "./ThemeProvider";
@@ -30,8 +36,11 @@ const baseLinks: { to: string; key: string; label: string; icon: LucideIcon }[] 
 export function Navbar() {
   const { mode, theme, toggle } = useSkyTheme();
   const { data: content } = useQuery(siteContentQueryOptions);
+<<<<<<< HEAD
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+=======
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   const label = (key: string, fallback: string) => {
     const v = content?.[key];
     return v && v.trim().length > 0 ? v : fallback;
@@ -45,6 +54,7 @@ export function Navbar() {
     { to: "/admin", key: "nav_admin", label: "Admin", icon: Lock },
   ].map((l) => ({ ...l, label: label(l.key, l.label) }));
 
+<<<<<<< HEAD
   return (
     <header className="sticky inset-x-0 top-0 z-50">
       {/* Desktop & Main Header bar */}
@@ -64,6 +74,16 @@ export function Navbar() {
         {/* Desktop navigation pills */}
         <div className="hidden min-w-0 flex-1 overflow-x-auto sm:block [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <ul className="flex w-max items-center gap-1 rounded-full border border-white/10 bg-black/50 px-2 py-1.5 backdrop-blur-xl sm:mx-auto sm:gap-2 sm:px-4 sm:py-2">
+=======
+
+
+
+  return (
+    <header className="sticky inset-x-0 top-0 z-50">
+      <nav className="mx-auto flex max-w-7xl items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-6 sm:py-4">
+        <div className="min-w-0 flex-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <ul className="flex w-max items-center gap-1 rounded-full border border-white/10 bg-black/50 px-1.5 py-1.5 backdrop-blur-xl sm:mx-auto sm:gap-2 sm:px-4 sm:py-2">
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
             {links.map((l) => {
               const Icon = l.icon;
               return (
@@ -76,9 +96,15 @@ export function Navbar() {
                         "text-white bg-white/15 border-white/25 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]",
                     }}
                     inactiveProps={{ className: "text-white/60 border-transparent" }}
+<<<<<<< HEAD
                     className="group inline-flex min-h-[44px] items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-medium transition-colors hover:text-white active:bg-white/10 sm:gap-2 sm:text-sm"
                   >
                     <Icon className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
+=======
+                    className="group inline-flex min-h-[44px] items-center gap-1.5 rounded-full border px-3 py-2 text-[13px] font-medium transition-colors hover:text-white active:bg-white/10 sm:gap-2 sm:px-3.5 sm:text-sm"
+                  >
+                    <Icon className="h-[18px] w-[18px] shrink-0" />
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
                     <span>{l.label}</span>
                   </Link>
                 </li>
@@ -87,6 +113,7 @@ export function Navbar() {
           </ul>
         </div>
 
+<<<<<<< HEAD
         {/* Action buttons (Theme toggle & Mobile menu trigger) */}
         <div className="flex items-center gap-2">
           <button
@@ -154,3 +181,31 @@ export function Navbar() {
   );
 }
 
+=======
+
+        <button
+          type="button"
+          onClick={toggle}
+          title={
+            mode === "auto"
+              ? "Auto (follows your local time)"
+              : mode === "day"
+                ? "Daytime"
+                : "Night"
+          }
+          aria-label={`Sky mode: ${mode}. Click to change.`}
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-black/50 text-white/70 backdrop-blur-xl transition-colors hover:border-white/30 hover:text-white"
+        >
+          {mode === "auto" ? (
+            <SunMoon className="h-4 w-4" />
+          ) : mode === "day" ? (
+            <Sun className="h-4 w-4" />
+          ) : (
+            <Moon className="h-4 w-4" />
+          )}
+        </button>
+      </nav>
+    </header>
+  );
+}
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba

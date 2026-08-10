@@ -49,16 +49,28 @@ function Stargaze() {
   const handleReady = useCallback(() => setReady(true), []);
 
   return (
+<<<<<<< HEAD
     <div className="relative -mt-20 h-[100dvh] w-full overflow-hidden animate-[fadeIn_700ms_ease-out_both]">
+=======
+    <div className="relative -mt-20 h-screen w-full animate-[fadeIn_700ms_ease-out_both]">
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       <Suspense fallback={<LoadingOverlay visible />}>
         <Galaxy onReady={handleReady} />
       </Suspense>
       <LoadingOverlay visible={!ready} />
+<<<<<<< HEAD
       <div className="pointer-events-none absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center gap-1.5 px-4 text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-white/50">
           Stargaze
         </p>
         <p className="text-xs text-white/50 sm:text-sm">
+=======
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 text-center">
+        <p className="text-xs uppercase tracking-[0.3em] text-white/50">
+          Stargaze
+        </p>
+        <p className="text-sm text-white/50">
+>>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
           Drag to orbit · Pinch to zoom · Double-click a star to focus
         </p>
       </div>
