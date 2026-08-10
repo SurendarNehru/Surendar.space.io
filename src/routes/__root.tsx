@@ -6,7 +6,7 @@ import {
   useRouter,
   useRouterState,
 } from "@tanstack/react-router";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, Component, type ReactNode } from "react";
 
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Starfield } from "../components/Starfield";
@@ -19,6 +19,20 @@ import { SiteFooter } from "../components/SiteFooter";
 const GalaxyBackdrop = lazy(() =>
   import("../components/GalaxyBackdrop").then((m) => ({ default: m.GalaxyBackdrop })),
 );
+
+class SafeBoundary extends Component<{ children: ReactNode }> {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error: unknown) {
+    console.error("Component render error caught:", error);
+  }
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
 
 function NotFoundComponent() {
   return (
@@ -140,15 +154,19 @@ function RootComponent() {
         <SiteStyle />
         <SkyBackground dim={onStargaze} />
         {!onStargaze && (
-          <Suspense fallback={null}>
-            <GalaxyBackdrop />
-          </Suspense>
+          <SafeBoundary>
+            <Suspense fallback={null}>
+              <GalaxyBackdrop />
+            </Suspense>
+          </SafeBoundary>
         )}
         <Navbar />
         <main className="relative z-10">
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
+          <SafeBoundary>
+            <Suspense fallback={null}>
+              <Outlet />
+            </Suspense>
+          </SafeBoundary>
         </main>
         {!onStargaze && <SiteFooter />}
       </SkyThemeProvider>
