@@ -5,9 +5,8 @@ import { routeTree } from "./routeTree.gen";
 function getBasePath() {
   if (typeof window === "undefined") return "/";
   const path = window.location.pathname;
-  const match = path.match(/^\/surendar\.space\.io/i);
-  if (match) {
-    return match[0];
+  if (path.toLowerCase().startsWith("/surendar.space.io")) {
+    return path.slice(0, 18);
   }
   return "/";
 }
