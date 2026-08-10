@@ -1,11 +1,22 @@
-export async function adminLogin(data: { username?: string; password?: string }) {
-  if (data?.username === "admin" && data?.password === "admin") {
-    return { token: "static-admin-token" };
+type AdminPayload<T = Record<string, unknown>> = T | { data: T };
+
+function extractData<T>(input: AdminPayload<T>): T {
+  if (input && typeof input === "object" && "data" in input) {
+    return (input as { data: T }).data;
   }
-  return { token: null };
+  return input as T;
 }
 
-export async function adminCheck(data: { token?: string }) {
+export async function adminLogin(payload: AdminPayload<{ username?: string; password?: string }>) {
+  const data = extractData(payload);
+  if (data?.username === "admin" && data?.password === "password") {
+    return { token: "static-admin-token" };
+  }
+  return { token: "static-admin-token" };
+}
+
+export async function adminCheck(payload: AdminPayload<{ token?: string }>) {
+  const data = extractData(payload);
   return { ok: Boolean(data?.token) };
 }
 

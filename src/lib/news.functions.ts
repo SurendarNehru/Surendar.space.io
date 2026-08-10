@@ -98,9 +98,8 @@ export async function getTechNews(options?: { limit?: number }): Promise<TechNew
   }
 }
 
-export const techNewsQueryOptions = (limit = 3) =>
-  queryOptions({
-    queryKey: ["tech-news", limit],
-    queryFn: () => getTechNews({ limit }),
-    staleTime: 1000 * 60 * 5,
-  });
+export const techNewsQueryOptions = queryOptions({
+  queryKey: ["tech-news"],
+  queryFn: () => getTechNews({ limit: 3 }),
+  staleTime: 1000 * 60 * 5,
+});
