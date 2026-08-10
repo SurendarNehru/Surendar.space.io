@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: process.env.NODE_ENV === "production" ? "/Surendar.space.io/" : "./",
+  base: "./",
   plugins: [
     TanStackRouterVite({
       routesDirectory: "./src/routes",
