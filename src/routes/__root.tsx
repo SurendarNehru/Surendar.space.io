@@ -5,12 +5,9 @@ import {
   createRootRouteWithContext,
   useRouter,
   useRouterState,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { lazy, Suspense, useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
-import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Starfield } from "../components/Starfield";
 import { Navbar } from "../components/Navbar";
@@ -22,7 +19,6 @@ import { SiteFooter } from "../components/SiteFooter";
 const GalaxyBackdrop = lazy(() =>
   import("../components/GalaxyBackdrop").then((m) => ({ default: m.GalaxyBackdrop })),
 );
-
 
 function NotFoundComponent() {
   return (
@@ -121,29 +117,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap",
       },
-      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en" className="dark">
-      <head>
-        <HeadContent />
-      </head>
-      <body className="min-h-screen bg-[#050508] text-white antialiased">
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function SkyBackground({ dim }: { dim: boolean }) {
   const { theme } = useSkyTheme();
@@ -173,6 +153,5 @@ function RootComponent() {
         {!onStargaze && <SiteFooter />}
       </SkyThemeProvider>
     </QueryClientProvider>
-
   );
 }
