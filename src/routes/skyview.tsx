@@ -50,20 +50,12 @@ function Skyview() {
   const handleReady = useCallback(() => setReady(true), []);
 
   return (
-<<<<<<< HEAD
     <div className="relative -mt-20 h-[100dvh] w-full overflow-hidden animate-[fadeIn_700ms_ease-out_both]">
-=======
-    <div className="relative -mt-20 h-[100svh] w-full overflow-hidden animate-[fadeIn_700ms_ease-out_both]">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       <Suspense fallback={<LoadingOverlay visible />}>
         <SkyScene onReady={handleReady} />
       </Suspense>
       <LoadingOverlay visible={!ready} />
-<<<<<<< HEAD
       <div className="pointer-events-none absolute inset-x-0 bottom-4 sm:bottom-8 flex flex-col items-center gap-1.5 px-4 text-center">
-=======
-      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex flex-col items-center gap-2 px-4 text-center sm:bottom-8">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         <p className="text-xs uppercase tracking-[0.3em] text-[#0b2545]/70">
           Skyview
         </p>

@@ -1,11 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "tanstack_start_ts",
-  "private": true,
-  "sideEffects": false,
-  "type": "module",
-  "scripts": {
-=======
   "name": "surendar-space-portfolio",
   "private": true,
   "sideEffects": false,
@@ -18,16 +11,12 @@
   "scripts": {
     "predev": "node scripts/setup-favicon.js",
     "prebuild": "node scripts/setup-favicon.js",
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-<<<<<<< HEAD
-=======
     "test": "node scripts/run-tests.js",
     "typecheck": "tsc --noEmit",
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
     "lint": "eslint .",
     "format": "prettier --write ."
   },

@@ -245,11 +245,7 @@ function Dashboard({ token, onSignOut }: { token: string; onSignOut: () => void 
         {tab === "ai" && <AiEditor token={token} />}
         {tab === "preview" && (
           <GlassCard className="!p-0">
-<<<<<<< HEAD
             <div className="h-[65vh] sm:h-[78vh] min-h-[380px]">
-=======
-            <div className="h-[78vh] min-h-[480px]">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
               <LivePreview />
             </div>
           </GlassCard>
@@ -285,11 +281,7 @@ function AiEditor({ token }: { token: string }) {
   return (
     <div className="grid gap-4 xl:grid-cols-2">
       <GlassCard className="!p-0">
-<<<<<<< HEAD
         <div className="flex h-[55vh] sm:h-[65vh] min-h-[360px] flex-col">
-=======
-        <div className="flex h-[65vh] min-h-[420px] flex-col">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 
         <Conversation className="flex-1">
           <ConversationContent className="gap-4">
@@ -381,11 +373,7 @@ function AiEditor({ token }: { token: string }) {
 
       <div className="grid gap-4">
         <GlassCard className="!p-0">
-<<<<<<< HEAD
           <div className="h-[35vh] sm:h-[42vh] min-h-[260px]">
-=======
-          <div className="h-[42vh] min-h-[300px]">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
             <LivePreview reloadSignal={reload} />
           </div>
         </GlassCard>

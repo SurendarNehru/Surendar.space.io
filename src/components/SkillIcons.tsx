@@ -44,10 +44,7 @@ function SkillTile({ label, Icon, color, desc, index }: Skill & { index: number 
   const [pinned, setPinned] = useState(false);
 
   const onMove = (e: React.PointerEvent<HTMLLIElement>) => {
-<<<<<<< HEAD
     if (e.pointerType === "touch") return;
-=======
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
@@ -84,41 +81,25 @@ function SkillTile({ label, Icon, color, desc, index }: Skill & { index: number 
       onBlur={() => !pinned && setOpen(false)}
       tabIndex={0}
       style={{ transformStyle: "preserve-3d" }}
-<<<<<<< HEAD
       className="group relative flex aspect-square cursor-pointer items-center justify-center rounded-xl sm:rounded-2xl border border-white/10 bg-[#07070c]/70 backdrop-blur-md outline-none transition-transform duration-200 ease-out will-change-transform focus-visible:border-white/40"
-=======
-      className="group relative flex aspect-square cursor-pointer items-center justify-center rounded-2xl border border-white/10 bg-[#07070c]/70 backdrop-blur-md outline-none transition-transform duration-200 ease-out will-change-transform focus-visible:border-white/40"
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       data-glass
       aria-label={`${label} — ${desc}`}
     >
       <Icon
         aria-hidden
         color={color}
-<<<<<<< HEAD
         className="h-7 w-7 transition-transform duration-300 group-hover:scale-110 sm:h-9 sm:w-9"
-=======
-        className="h-8 w-8 transition-transform duration-300 group-hover:scale-110 sm:h-10 sm:w-10"
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         style={{ filter: "drop-shadow(0 6px 18px rgba(0,0,0,0.55))" }}
       />
 
       <div
         role="tooltip"
-<<<<<<< HEAD
         className={`pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-36 sm:w-44 -translate-x-1/2 rounded-xl border border-white/15 bg-[#07070c]/95 px-2.5 py-1.5 sm:px-3 sm:py-2 text-left shadow-xl backdrop-blur-md transition-all duration-200 ${
-=======
-        className={`pointer-events-none absolute bottom-full left-1/2 z-30 mb-2 w-44 -translate-x-1/2 rounded-xl border border-white/15 bg-[#07070c]/95 px-3 py-2 text-left shadow-xl backdrop-blur-md transition-all duration-200 ${
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
           open ? "translate-y-0 opacity-100" : "translate-y-1 opacity-0"
         }`}
       >
         <div className="text-xs font-semibold text-white">{label}</div>
-<<<<<<< HEAD
         <p className="mt-0.5 text-[10px] sm:text-[11px] leading-snug text-white/65">{desc}</p>
-=======
-        <p className="mt-0.5 text-[11px] leading-snug text-white/65">{desc}</p>
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       </div>
 
       <span className="sr-only">{label}</span>
@@ -129,11 +110,7 @@ function SkillTile({ label, Icon, color, desc, index }: Skill & { index: number 
 /** Icon-only skills grid — brand marks on dark tiles, 3D pointer tilt, hover/tap tooltips. */
 export function SkillIcons() {
   return (
-<<<<<<< HEAD
     <ul className="grid grid-cols-3 gap-2.5 min-[380px]:grid-cols-4 sm:grid-cols-5 sm:gap-4 md:grid-cols-7">
-=======
-    <ul className="grid grid-cols-4 gap-3 sm:grid-cols-5 sm:gap-4 lg:grid-cols-5">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       {SKILLS.map((s, i) => (
         <SkillTile key={s.label} {...s} index={i} />
       ))}

@@ -15,12 +15,7 @@ function b64url(bytes: Uint8Array): string {
 }
 
 async function hmac(payload: string): Promise<string> {
-<<<<<<< HEAD
   const secret = process.env.ADMIN_SESSION_SECRET || "cosmic-canvas-secret-key-2026";
-=======
-  const secret = process.env.ADMIN_SESSION_SECRET;
-  if (!secret) throw new Error("Admin session secret is not configured.");
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   const key = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(secret),
@@ -40,14 +35,8 @@ function safeEqual(a: string, b: string): boolean {
 }
 
 export async function login(username: string, password: string): Promise<string> {
-<<<<<<< HEAD
   const expectedUser = process.env.ADMIN_USERNAME || "admin";
   const expectedPass = process.env.ADMIN_PASSWORD || "admin123";
-=======
-  const expectedUser = process.env.ADMIN_USERNAME;
-  const expectedPass = process.env.ADMIN_PASSWORD;
-  if (!expectedUser || !expectedPass) throw new Error("Admin credentials are not configured.");
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 
   const ok =
     safeEqual(username.trim(), expectedUser) && safeEqual(password, expectedPass);

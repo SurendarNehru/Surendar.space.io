@@ -10,10 +10,7 @@ export function GlassCard({
   const ref = useRef<HTMLDivElement | null>(null);
 
   const onMove = (e: React.PointerEvent<HTMLDivElement>) => {
-<<<<<<< HEAD
     if (e.pointerType === "touch") return;
-=======
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -37,11 +34,7 @@ export function GlassCard({
       onPointerMove={onMove}
 
       onPointerLeave={onLeave}
-<<<<<<< HEAD
       className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c14]/60 p-5 sm:p-8 backdrop-blur-xl transition-[transform,border-color] duration-300 ease-out hover:border-white/25 will-change-transform ${className}`}
-=======
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c14]/60 p-8 backdrop-blur-xl transition-[transform,border-color] duration-300 ease-out hover:border-white/25 will-change-transform ${className}`}
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
       style={{ transformStyle: "preserve-3d" }}
     >
       <div

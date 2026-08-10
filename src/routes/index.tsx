@@ -1,10 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
-=======
-import { useState } from "react";
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 import { motion } from "framer-motion";
 import { MapPin, RefreshCw } from "lucide-react";
 import { GlassCard } from "../components/GlassCard";
@@ -35,15 +31,11 @@ export const Route = createFileRoute("/")({
     ],
   }),
   loader: async ({ context }) => {
-<<<<<<< HEAD
     try {
       await context.queryClient.ensureQueryData(siteContentQueryOptions);
     } catch {
       // Safe fallback if network/Supabase fetch fails
     }
-=======
-    await context.queryClient.ensureQueryData(siteContentQueryOptions);
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   },
 
   errorComponent: ({ error }) => (
@@ -214,7 +206,6 @@ function LatestPosts() {
 
 
 
-<<<<<<< HEAD
 function TypewriterText({ text }: { text: string }) {
   const upperText = text.toUpperCase();
   const [displayed, setDisplayed] = useState("");
@@ -247,25 +238,18 @@ function TypewriterText({ text }: { text: string }) {
   return <span className="inline-block">{displayed || "\u00A0"}</span>;
 }
 
-=======
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
 function Index() {
   const t = useSiteContent();
 
   return (
     <>
       {/* Hero */}
-<<<<<<< HEAD
       <section className="relative mx-auto grid max-w-7xl grid-cols-1 items-start gap-8 px-4 pb-12 pt-4 sm:gap-10 sm:px-6 sm:pb-16 sm:pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:pt-10">
-=======
-      <section className="relative mx-auto grid max-w-7xl grid-cols-1 items-start gap-10 px-5 pb-16 pt-6 sm:px-6 sm:pt-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16 lg:pt-10">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         <div className="min-w-0">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-<<<<<<< HEAD
             className="hero-title-surendar flex items-center font-extrabold uppercase leading-[1.05] tracking-wider text-white select-none"
           >
             <TypewriterText text={t("hero_name", "Surendar")} />
@@ -280,22 +264,11 @@ function Index() {
             {t("hero_role", "Full Stack Developer")}
           </motion.div>
 
-=======
-            className="text-5xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl lg:text-7xl"
-          >
-            {t("hero_name", "Surendar")}
-          </motion.h1>
-
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.15 }}
-<<<<<<< HEAD
             className="mt-4 sm:mt-5 max-w-xl text-sm leading-relaxed text-white/70 sm:text-lg"
-=======
-            className="mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg"
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
           >
             {t("hero_quote", "Building the full picture — frontend, backend and beyond.")}
           </motion.p>
@@ -304,56 +277,33 @@ function Index() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.25 }}
-<<<<<<< HEAD
             className="mt-4 sm:mt-5 flex items-center gap-2 text-white/60"
           >
             <MapPin className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" />
             <span className="text-sm sm:text-base">{t("hero_location", "Chennai, IN")}</span>
-=======
-            className="mt-5 flex items-center gap-2 text-white/60"
-          >
-            <MapPin className="h-5 w-5 shrink-0" />
-            <span className="text-base">{t("hero_location", "Chennai, IN")}</span>
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 }}
-<<<<<<< HEAD
             className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3"
           >
             <Link
               to="/about"
               className="inline-flex justify-center items-center rounded-full border border-white/70 bg-white/90 px-5 py-2.5 text-sm font-medium text-[#0b0b14] transition-colors hover:bg-white"
-=======
-            className="mt-8 flex flex-wrap items-center gap-3"
-          >
-            <Link
-              to="/about"
-              className="inline-flex items-center rounded-full border border-white/70 bg-white/90 px-5 py-2.5 text-sm font-medium text-[#0b0b14] transition-colors hover:bg-white"
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
             >
               {t("hero_cta_primary", "Know Me")}
             </Link>
             <Link
               to="/contact"
-<<<<<<< HEAD
               className="inline-flex justify-center items-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
-=======
-              className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
             >
               {t("hero_cta_secondary", "Contact Me")}
             </Link>
             <Link
               to="/contact"
-<<<<<<< HEAD
               className="inline-flex justify-center items-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
-=======
-              className="inline-flex items-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
             >
               {t("hero_cta_tertiary", "Schedule a Call")}
             </Link>

@@ -15,7 +15,6 @@ export const Route = createFileRoute("/contact")({
       { name: "twitter:card", content: "summary" },
     ],
   }),
-<<<<<<< HEAD
   loader: async ({ context }) => {
     try {
       await context.queryClient.ensureQueryData(siteContentQueryOptions);
@@ -23,9 +22,6 @@ export const Route = createFileRoute("/contact")({
       // Safe fallback
     }
   },
-=======
-  loader: ({ context }) => context.queryClient.ensureQueryData(siteContentQueryOptions),
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
   errorComponent: ({ error }) => (
     <div role="alert" className="px-6 py-24 text-white/70">
       {error.message}
@@ -50,15 +46,9 @@ function Contact() {
   const strip = (u: string) => u.replace(/^https?:\/\//, "");
 
   return (
-<<<<<<< HEAD
     <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-24">
       <p className="text-xs uppercase tracking-[0.3em] text-white/50">Contact</p>
       <h1 className="mt-3 text-3xl min-[380px]:text-4xl sm:text-5xl font-semibold text-white">
-=======
-    <section className="mx-auto max-w-3xl px-6 py-24">
-      <p className="text-xs uppercase tracking-[0.3em] text-white/50">Contact</p>
-      <h1 className="mt-3 text-5xl font-semibold text-white">
->>>>>>> ff8c7d592c716ee34ce90be01f9302b4ea4f9dba
         {t("contact_heading", "Send a signal")}
       </h1>
       <p className="mt-4 whitespace-pre-line text-white/70">
