@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -15,12 +15,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build-and-deploy:
     name: Build & Deploy Portfolio to GitHub Pages
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: https://surendarnehru.github.io/Surendar.space.io/
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,7 +28,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Setup Favicon & Assets
         run: node scripts/setup-favicon.js || true
@@ -41,11 +38,19 @@ jobs:
           npm run build
           node scripts/prepare-pages-dist.js
 
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          branch: gh-pages
+        continue-on-error: true
+
       - name: Upload GitHub Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (Actions)
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
