@@ -12,7 +12,7 @@
     "predev": "node scripts/setup-favicon.js",
     "prebuild": "node scripts/cleanup-workflows.js && node scripts/setup-favicon.js",
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && node scripts/prepare-pages-dist.js",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "test": "node scripts/run-tests.js",
