@@ -10,7 +10,7 @@
   },
   "scripts": {
     "predev": "node scripts/setup-favicon.js",
-    "prebuild": "node scripts/setup-favicon.js",
+    "prebuild": "node scripts/cleanup-workflows.js && node scripts/setup-favicon.js",
     "dev": "vite dev",
     "build": "vite build",
     "build:dev": "vite build --mode development",
