@@ -6,7 +6,7 @@
   "homepage": "https://surendar.space",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SurendarNehru/Surendar.space.git"
+    "url": "https://github.com/SurendarNehru/Surendar.space.io.git"
   },
   "scripts": {
     "predev": "node scripts/setup-favicon.js",

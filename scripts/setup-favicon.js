@@ -8,8 +8,8 @@ const projectRoot = path.resolve(__dirname, '..');
 const publicDir = path.join(projectRoot, 'public');
 
 const sourcePaths = [
-  'C:\\Users\\Shalini\\.gemini\\antigravity-ide\\brain\\3a4389d6-2353-40d2-ab1d-6b71b6c98c4b\\surendar_favicon_1786288126511.png',
-  'C:\\Users\\Shalini\\.gemini\\antigravity-ide\\brain\\3a4389d6-2353-40d2-ab1d-6b71b6c98c4b\\media__1786287999052.jpg',
+  path.join(projectRoot, 'src', 'assets', 'favicon.png'),
+  path.join(projectRoot, 'src', 'assets', 'surendar.jpg'),
 ];
 
 let copied = false;
@@ -22,11 +22,7 @@ for (const src of sourcePaths) {
   if (fs.existsSync(src)) {
     try {
       const targetFavicon = path.join(publicDir, 'favicon.png');
-      const targetJpg = path.join(publicDir, 'surendar.jpg');
-      const targetAvatar = path.join(publicDir, 'avatar.jpg');
       fs.copyFileSync(src, targetFavicon);
-      fs.copyFileSync(src, targetJpg);
-      fs.copyFileSync(src, targetAvatar);
       console.log(`Successfully updated favicon from ${src}`);
       copied = true;
       break;
