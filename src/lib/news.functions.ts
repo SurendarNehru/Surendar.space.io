@@ -103,3 +103,6 @@ export const techNewsQueryOptions = queryOptions({
   queryFn: () => getTechNews({ limit: 3 }),
   staleTime: 1000 * 60 * 5,
 });
+
+// Backwards-compatible alias: older code imports `techNewsFeedQueryOptions`
+export const techNewsFeedQueryOptions = techNewsQueryOptions;
