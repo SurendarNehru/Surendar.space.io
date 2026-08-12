@@ -16,8 +16,8 @@ const items: Item[] = [
     desc: "Completed a full-stack program with focus on frontend and backend web technologies.",
   },
   {
-    year: "2024",
-    title: "Frontend Engineer",
+    year: "2025",
+    title: "Frontend Developer",
     place: "Product Studio",
     desc: "Shipped realtime dashboards, edge APIs, and a design system used across 6 products.",
   },
