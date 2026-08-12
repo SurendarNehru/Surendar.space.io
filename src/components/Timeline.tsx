@@ -10,14 +10,14 @@ type Item = {
 
 const items: Item[] = [
   {
-    year: "2025",
+    year: "2026",
     title: "Full Stack Developer",
-    place: "Freelance / Open Source",
-    desc: "Building performant, animated web experiences with React, TanStack, and Three.js.",
+    place: "Saveetha Engineering College",
+    desc: "Completed a full-stack program with focus on frontend and backend web technologies.",
   },
   {
     year: "2024",
-    title: "Software Engineer",
+    title: "Frontend Engineer",
     place: "Product Studio",
     desc: "Shipped realtime dashboards, edge APIs, and a design system used across 6 products.",
   },
