@@ -55,8 +55,9 @@ const target404Html = path.join(distDir, '404.html');
 
 if (fs.existsSync(targetIndexHtml)) {
   let html = fs.readFileSync(targetIndexHtml, 'utf-8');
-  // Preserve absolute root-relative paths (e.g. "/Surendar.space.io/assets/...") so
-  // the same URLs resolve correctly when the 404 page is served from nested paths.
+  // Normalize any accidental './RepoName/...' prefixes to absolute '/RepoName/...'
+  // so asset URLs resolve correctly when 404.html is served from nested routes.
+  html = html.replace(/\.\/Surendar\.space\.io\//g, '/Surendar.space.io/');
   fs.writeFileSync(targetIndexHtml, html, 'utf-8');
   fs.writeFileSync(target404Html, html, 'utf-8');
   console.log('Successfully processed compiled dist/index.html and created dist/404.html.');
