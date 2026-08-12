@@ -21,12 +21,7 @@ const items: Item[] = [
     place: "Product Studio",
     desc: "Shipped realtime dashboards, edge APIs, and a design system used across 6 products.",
   },
-  {
-    year: "2023",
-    title: "Frontend Engineer",
-    place: "Early-Stage Startup",
-    desc: "Owned the UI stack end-to-end. Wrote the animation and interaction language for the app.",
-  },
+  // removed duplicate/older role per request
   {
     year: "2022",
     title: "B.Tech, Computer Science",
