@@ -1,0 +1,1 @@
+import{D as e}from"./index-MfuWl2gX.js";var t=e(),n=({error:e})=>(0,t.jsx)(`div`,{role:`alert`,className:`px-6 py-24 text-white/70`,children:e.message});export{n as errorComponent};

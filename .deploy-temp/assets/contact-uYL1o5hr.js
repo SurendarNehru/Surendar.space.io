@@ -1,0 +1,1 @@
+import{D as e}from"./index-MfuWl2gX.js";var t=e(),n=()=>(0,t.jsx)(`div`,{className:`px-6 py-24 text-white/70`,children:`Not found.`});export{n as notFoundComponent};
