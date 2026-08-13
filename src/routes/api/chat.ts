@@ -62,8 +62,13 @@ export const Route = createFileRoute("/api/chat")({
           return new Response("Messages are required", { status: 400 });
         }
 
-        const key = process.env.LOVABLE_API_KEY;
-        if (!key) return new Response("Missing LOVABLE_API_KEY", { status: 500 });
+        const lovableKey = process.env.LOVABLE_API_KEY;
+        const openaiKey = process.env.OPENAI_API_KEY;
+        if (!lovableKey && !openaiKey)
+          return new Response(
+            "Missing AI provider key (LOVABLE_API_KEY or OPENAI_API_KEY)",
+            { status: 500 },
+          );
 
         const data = await import("@/lib/admin-data.server");
 
@@ -186,9 +191,21 @@ export const Route = createFileRoute("/api/chat")({
         };
 
 
-        const gateway = createLovableAiGatewayProvider(key);
+        let gateway: any;
+        let modelName = process.env.AI_MODEL ?? (lovableKey ? "google/gemini-3.6-flash" : "gpt-4o-mini");
+        if (lovableKey) {
+          gateway = createLovableAiGatewayProvider(lovableKey);
+        } else {
+          const { createOpenAICompatible } = await import("@ai-sdk/openai-compatible");
+          gateway = createOpenAICompatible({
+            name: "openai",
+            baseURL: "https://api.openai.com/v1",
+            apiKey: openaiKey,
+          });
+        }
+
         const result = streamText({
-          model: gateway("google/gemini-3.6-flash"),
+          model: gateway(modelName),
           system: SYSTEM,
           messages: await convertToModelMessages(body.messages as UIMessage[]),
           tools,
