@@ -17,6 +17,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as SkyviewRouteImport } from './routes/skyview'
 import { Route as StargazeRouteImport } from './routes/stargaze'
+import { Route as ApiAdminRouteImport } from './routes/api/admin'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const IndexRoute = IndexRouteImport.update({
@@ -59,6 +60,11 @@ const StargazeRoute = StargazeRouteImport.update({
   path: '/stargaze',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiAdminRoute = ApiAdminRouteImport.update({
+  id: '/api/admin',
+  path: '/api/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/skyview': typeof SkyviewRoute
   '/stargaze': typeof StargazeRoute
+  '/api/admin': typeof ApiAdminRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/skyview': typeof SkyviewRoute
   '/stargaze': typeof StargazeRoute
+  '/api/admin': typeof ApiAdminRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/skyview': typeof SkyviewRoute
   '/stargaze': typeof StargazeRoute
+  '/api/admin': typeof ApiAdminRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/skyview'
     | '/stargaze'
+    | '/api/admin'
     | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/skyview'
     | '/stargaze'
+    | '/api/admin'
     | '/api/chat'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/skyview'
     | '/stargaze'
+    | '/api/admin'
     | '/api/chat'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   ProjectsRoute: typeof ProjectsRoute
   SkyviewRoute: typeof SkyviewRoute
   StargazeRoute: typeof StargazeRoute
+  ApiAdminRoute: typeof ApiAdminRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StargazeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/admin': {
+      id: '/api/admin'
+      path: '/api/admin'
+      fullPath: '/api/admin'
+      preLoaderRoute: typeof ApiAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProjectsRoute: ProjectsRoute,
   SkyviewRoute: SkyviewRoute,
   StargazeRoute: StargazeRoute,
+  ApiAdminRoute: ApiAdminRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport

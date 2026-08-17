@@ -385,11 +385,19 @@ function AiEditor({ token }: { token: string }) {
   );
 }
 
+type AdminProjectRow = {
+  id: string;
+  name: string;
+  description: string;
+  tag: string;
+  sort_order: number;
+};
+
 function ProjectsPanel({ token }: { token: string }) {
   const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<AdminProjectRow[]>({
     queryKey: ["admin-projects"],
-    queryFn: () => adminListProjects({ data: { token } }),
+    queryFn: () => adminListProjects({ data: { token } }) as Promise<AdminProjectRow[]>,
   });
   const remove = useMutation({
     mutationFn: (id: string) => adminDeleteProject({ data: { token, id } }),
@@ -432,11 +440,19 @@ function ProjectsPanel({ token }: { token: string }) {
 }
 
 
+type AdminPostRow = {
+  id: string;
+  title: string;
+  excerpt: string;
+  slug: string;
+  published_at: string;
+};
+
 function PostsPanel({ token }: { token: string }) {
   const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<AdminPostRow[]>({
     queryKey: ["admin-posts"],
-    queryFn: () => adminListPosts({ data: { token } }),
+    queryFn: () => adminListPosts({ data: { token } }) as Promise<AdminPostRow[]>,
   });
   const remove = useMutation({
     mutationFn: (id: string) => adminDeletePost({ data: { token, id } }),
@@ -478,11 +494,16 @@ function PostsPanel({ token }: { token: string }) {
   );
 }
 
+type AdminContentRow = {
+  key: string;
+  value: string;
+};
+
 function ContentPanel({ token }: { token: string }) {
   const queryClient = useQueryClient();
-  const { data, isLoading } = useQuery({
+  const { data, isLoading } = useQuery<AdminContentRow[]>({
     queryKey: ["admin-content"],
-    queryFn: () => adminListContent({ data: { token } }),
+    queryFn: () => adminListContent({ data: { token } }) as Promise<AdminContentRow[]>,
   });
 
   const refresh = () => {
@@ -557,8 +578,8 @@ function ContentPanel({ token }: { token: string }) {
       </GlassCard>
 
       {(data ?? []).map((row) => {
-        const key = row.key as string;
-        const stored = (row.value as string) ?? "";
+        const key = row.key;
+        const stored = row.value ?? "";
         const value = drafts[key] ?? stored;
         return (
           <GlassCard key={key} className="!p-4">

@@ -12,34 +12,40 @@ export type SiteProject = {
 
 const FALLBACK_PROJECTS: SiteProject[] = [
   {
-    id: "proj-1",
-    name: "Cosmic Canvas",
+    id: "proj-swapit",
+    name: "SwapIt",
     description:
-      "An interactive, space-inspired web application featuring real-time 3D galaxy particle rendering, custom shaders, and dynamic sky mode transitions.",
-    tag: "Full Stack / 3D",
+      "Secure Campus-Based Student Exchange Platform\n\nSwapIt is a dedicated digital marketplace designed for university students to buy, sell, and exchange products within a verified campus community.\n\nKey Features\n• Verified student-only access\n• Product listing with images and descriptions\n• Search and filtering\n• Firebase Authentication\n• Firebase Storage\n• Buyer–seller communication\n• Secure campus-based trading\n• Encourages reuse and sustainable consumption\n\nTechnology\nHTML5 · CSS3 · JavaScript · Tailwind CSS · Express.js · MongoDB · Firebase",
+    tag: "Marketplace",
     url: "https://github.com/SurendarNehru",
-    image_url:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1024&auto=format&fit=crop&q=80",
+    image_url: "/__l5e/assets-v1/1edb384d-0b56-42cf-9cb0-87c335a553ad/proj-swapit.jpg",
   },
   {
-    id: "proj-2",
-    name: "Nebula Engine",
+    id: "proj-careconnect",
+    name: "Care Connect",
     description:
-      "High-performance TypeScript & WebGL canvas framework for interactive particle systems and procedural space landscapes.",
-    tag: "TypeScript / WebGL",
+      "Doctor Home Visit Booking Platform\n\nCare Connect is a digital healthcare platform that allows patients to discover verified doctors and schedule medical consultations at home.\n\nKey Features\n• Doctor verification\n• Specialization-based search\n• Location-based doctor discovery\n• Appointment booking\n• Appointment approval and rescheduling\n• Patient–doctor communication\n• Ratings and feedback\n• Firebase authentication\n• Role-based access\n\nTechnology\nJava · XML · Android Studio · Firebase Authentication · Firestore · Realtime Database",
+    tag: "Healthcare",
     url: "https://github.com/SurendarNehru",
-    image_url:
-      "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=1024&auto=format&fit=crop&q=80",
+    image_url: "/__l5e/assets-v1/af9030c1-3ef3-48db-92ed-0b763fb0e555/proj-careconnect.jpg",
   },
   {
-    id: "proj-3",
-    name: "Starlight UI System",
+    id: "proj-eyecursor",
+    name: "EyeCursor",
     description:
-      "Glassmorphic, accessible design system with customizable tokens, ambient blur effects, and smooth framer-motion micro-interactions.",
-    tag: "Design System / React",
+      "Controlling Cursor With Eye Movements\n\nEyeCursor is an assistive computer-vision system that enables users to control their computer cursor using eye movements captured through a standard webcam.\n\nKey Features\n• Real-time eye tracking\n• Hands-free cursor movement\n• Eye-gesture clicking\n• Facial landmark detection\n• Webcam-based operation\n• Accessibility-focused interaction\n• Minimal hardware requirements\n\nTechnology\nPython · OpenCV · MediaPipe · PyAutoGUI · Computer Vision",
+    tag: "Computer Vision",
     url: "https://github.com/SurendarNehru",
-    image_url:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1024&auto=format&fit=crop&q=80",
+    image_url: "/__l5e/assets-v1/f9b1daa3-a2c7-4414-9c95-719310bf6e8b/proj-eyecursor.jpg",
+  },
+  {
+    id: "proj-portfolio",
+    name: "My Portfolio",
+    description:
+      "Personal Developer Portfolio\n\nA modern personal portfolio designed and developed to showcase my projects, technical skills, experience, achievements, and development journey.\n\nKey Features\n• Responsive portfolio design\n• Project showcase\n• About section\n• Skills and technologies\n• Experience and achievements\n• Contact section\n• GitHub and professional links\n• Interactive navigation\n• Modern animations and visual effects\n\nTechnology\nReact · JavaScript · HTML · CSS · Tailwind CSS · Vercel",
+    tag: "Portfolio",
+    url: "https://github.com/SurendarNehru",
+    image_url: "/__l5e/assets-v1/f8cbc4b6-ac4e-48ce-8a27-9478e308d621/proj-portfolio.jpg",
   },
 ];
 

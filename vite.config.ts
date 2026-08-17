@@ -5,8 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  // Base path for GitHub Pages project site.
-  base: "/Surendar.space.io/",
+  base: "/",
   plugins: [
     TanStackRouterVite({
       routesDirectory: "./src/routes",

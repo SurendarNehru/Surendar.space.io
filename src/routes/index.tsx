@@ -6,6 +6,7 @@ import { MapPin, RefreshCw } from "lucide-react";
 import { GlassCard } from "../components/GlassCard";
 import { Timeline } from "../components/Timeline";
 import { SkillIcons } from "../components/SkillIcons";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { techNewsQueryOptions } from "../lib/news.functions";
 import { siteContentQueryOptions } from "../lib/content.functions";
 import { useSiteContent } from "../lib/use-site-content";
@@ -238,6 +239,47 @@ function TypewriterText({ text }: { text: string }) {
   return <span className="inline-block">{displayed || "\u00A0"}</span>;
 }
 
+function BookingDialog() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className="inline-flex justify-center items-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
+        >
+          Schedule a Call
+        </button>
+      </DialogTrigger>
+      <DialogContent className="max-w-5xl overflow-hidden border border-white/10 bg-[#090d16]/95 p-0 text-white shadow-[0_0_40px_rgba(32,66,112,0.45)] backdrop-blur-xl sm:rounded-[28px]">
+        <div className="border-b border-white/10 bg-[#0a1020] px-5 py-4">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.28em] text-white/45">Booking</p>
+              <h3 className="mt-1 text-2xl font-semibold tracking-tight text-white">30 minute meeting</h3>
+            </div>
+            <div className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-cyan-300">
+              Available
+            </div>
+          </div>
+        </div>
+        <div className="flex h-[82vh] w-full items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.14),_transparent_35%),linear-gradient(180deg,#0a1020,#0d1425)] p-3">
+          <div className="h-full w-full overflow-hidden rounded-[22px] border border-white/10 bg-[#0d1425] shadow-inner shadow-cyan-500/10">
+            <iframe
+              src="https://calendly.com/surendarnehru2004/30min"
+              title="Schedule a call with Surendar"
+              className="h-full w-full border-0"
+              allow="fullscreen; clipboard-write; microphone; camera"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 function Index() {
   const t = useSiteContent();
 
@@ -301,12 +343,7 @@ function Index() {
             >
               {t("hero_cta_secondary", "Contact Me")}
             </Link>
-            <Link
-              to="/contact"
-              className="inline-flex justify-center items-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-white/10"
-            >
-              {t("hero_cta_tertiary", "Schedule a Call")}
-            </Link>
+            <BookingDialog />
           </motion.div>
 
 

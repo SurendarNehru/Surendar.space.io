@@ -11,22 +11,21 @@ type Item = {
 const items: Item[] = [
   {
     year: "2026",
-    title: "Full Stack Developer",
+    title: "B.Tech in Computer Science and Engineering",
     place: "Saveetha Engineering College",
-    desc: "Completed a full-stack program with focus on frontend and backend web technologies.",
+    desc: "Focused on modern software engineering, web systems, product building, and human-centered digital experiences.",
   },
   {
     year: "2025",
-    title: "Frontend Developer",
-    place: "Product Studio",
-    desc: "Shipped realtime dashboards, edge APIs, and a design system used across 6 products.",
+    title: "Frontend & Full-Stack Product Development",
+    place: "Independent Projects",
+    desc: "Built practical web apps and interfaces with a strong focus on user experience, real-time features, and deployment-ready products.",
   },
-  // removed duplicate/older role per request
   {
     year: "2022",
-    title: "B.Tech, Computer Science",
-    place: "University",
-    desc: "Graduated with focus on distributed systems, graphics, and human-computer interaction.",
+    title: "Academic Foundation in Computer Science",
+    place: "Engineering Education",
+    desc: "Developed a strong base in software engineering, problem solving, and technology-driven design thinking.",
   },
 ];
 
