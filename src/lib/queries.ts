@@ -21,7 +21,7 @@ export const latestPostsQueryOptions = queryOptions({
 
 export const techNewsQueryOptions = queryOptions({
   queryKey: ["tech-news", 3],
-  queryFn: () => getTechNews({ data: { limit: 3 } }),
+  queryFn: () => getTechNews({ limit: 3 }),
   staleTime: 60 * 1000,
   refetchInterval: 60 * 1000,
   refetchIntervalInBackground: true,
@@ -31,7 +31,7 @@ export const techNewsQueryOptions = queryOptions({
 
 export const techNewsFeedQueryOptions = queryOptions({
   queryKey: ["tech-news", 10],
-  queryFn: () => getTechNews({ data: { limit: 10 } }),
+  queryFn: () => getTechNews({ limit: 10 }),
   staleTime: 60 * 1000,
   refetchInterval: 60 * 1000,
   refetchIntervalInBackground: true,
