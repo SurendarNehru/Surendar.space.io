@@ -47,6 +47,12 @@ function Projects() {
       <h1 className="mt-3 text-3xl min-[380px]:text-4xl sm:text-5xl font-semibold text-white">
         {t("projects_heading", "Selected work")}
       </h1>
+      
+      {/* Project Photo */}
+      <div className="mt-8 w-full h-64 sm:h-96 rounded-3xl overflow-hidden shadow-xl border border-white/10">
+        <img src="/project_photo.jpg" alt="Projects Overview" className="w-full h-full object-cover" />
+      </div>
+
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {projects.length === 0 ? (
           <GlassCard>
