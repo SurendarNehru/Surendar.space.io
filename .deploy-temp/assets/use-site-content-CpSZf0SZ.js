@@ -1,0 +1,1 @@
+import{_ as e,m as t,p as n,r}from"./index-MfuWl2gX.js";function i(r,i){return n({...r,enabled:!0,suspense:!0,throwOnError:t,placeholderData:void 0},e,i)}function a(){let{data:e}=i(r);return(t,n)=>{let r=e?.[t];return r&&r.trim().length>0?r:n}}export{i as n,a as t};
