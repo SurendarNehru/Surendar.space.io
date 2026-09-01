@@ -55,10 +55,7 @@ function Contact() {
   const t = useSiteContent();
   const email = t("contact_email", "surendarnehru2004@gmail.com");
   const github = t("contact_github", "https://github.com/SurendarNehru");
-  const linkedin = t(
-    "contact_linkedin",
-    "https://www.linkedin.com/in/surendar-n-55a8482a1",
-  );
+  const linkedin = t("contact_linkedin", "https://www.linkedin.com/in/surendar-n-55a8482a1");
   const instagram = t(
     "contact_instagram",
     "https://www.instagram.com/sanz.______?igsh=b2xsY2pwcWQzOGJh",

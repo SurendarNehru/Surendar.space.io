@@ -22,20 +22,90 @@ type IconType = typeof SiReact;
 type Skill = { label: string; Icon: IconType; color: string; desc: string };
 
 const SKILLS: Skill[] = [
-  { label: "TypeScript", Icon: SiTypescript, color: "#3178c6", desc: "Typed JavaScript for safer, scalable apps." },
-  { label: "Svelte", Icon: SiSvelte, color: "#ff3e00", desc: "Compiler-first UI framework with no virtual DOM." },
-  { label: "React", Icon: SiReact, color: "#61dafb", desc: "Component-driven UI library for the web." },
-  { label: "Python", Icon: SiPython, color: "#ffd845", desc: "Scripting, automation and computer vision work." },
-  { label: "Next.js", Icon: SiNextdotjs, color: "#ffffff", desc: "React framework for SSR and full-stack routes." },
-  { label: "PostgreSQL", Icon: SiPostgresql, color: "#699eca", desc: "Relational database with strong SQL features." },
-  { label: "MongoDB", Icon: SiMongodb, color: "#4faa41", desc: "Document database for flexible schemas." },
-  { label: "Nginx", Icon: SiNginx, color: "#019639", desc: "Reverse proxy and high-performance web server." },
-  { label: "Linux", Icon: SiLinux, color: "#f5f5f5", desc: "Server administration and shell tooling." },
-  { label: "MySQL", Icon: SiMysql, color: "#00758f", desc: "Classic relational database for web backends." },
-  { label: "Postman", Icon: SiPostman, color: "#ff6c37", desc: "API design, testing and collections." },
-  { label: "Node.js", Icon: SiNodedotjs, color: "#83cd29", desc: "JavaScript runtime for APIs and services." },
-  { label: "Fastify", Icon: SiFastify, color: "#2ee6a8", desc: "Low-overhead Node framework for fast APIs." },
-  { label: "Java", Icon: FaJava, color: "#e76f00", desc: "Android and backend application development." },
+  {
+    label: "TypeScript",
+    Icon: SiTypescript,
+    color: "#3178c6",
+    desc: "Typed JavaScript for safer, scalable apps.",
+  },
+  {
+    label: "Svelte",
+    Icon: SiSvelte,
+    color: "#ff3e00",
+    desc: "Compiler-first UI framework with no virtual DOM.",
+  },
+  {
+    label: "React",
+    Icon: SiReact,
+    color: "#61dafb",
+    desc: "Component-driven UI library for the web.",
+  },
+  {
+    label: "Python",
+    Icon: SiPython,
+    color: "#ffd845",
+    desc: "Scripting, automation and computer vision work.",
+  },
+  {
+    label: "Next.js",
+    Icon: SiNextdotjs,
+    color: "#ffffff",
+    desc: "React framework for SSR and full-stack routes.",
+  },
+  {
+    label: "PostgreSQL",
+    Icon: SiPostgresql,
+    color: "#699eca",
+    desc: "Relational database with strong SQL features.",
+  },
+  {
+    label: "MongoDB",
+    Icon: SiMongodb,
+    color: "#4faa41",
+    desc: "Document database for flexible schemas.",
+  },
+  {
+    label: "Nginx",
+    Icon: SiNginx,
+    color: "#019639",
+    desc: "Reverse proxy and high-performance web server.",
+  },
+  {
+    label: "Linux",
+    Icon: SiLinux,
+    color: "#f5f5f5",
+    desc: "Server administration and shell tooling.",
+  },
+  {
+    label: "MySQL",
+    Icon: SiMysql,
+    color: "#00758f",
+    desc: "Classic relational database for web backends.",
+  },
+  {
+    label: "Postman",
+    Icon: SiPostman,
+    color: "#ff6c37",
+    desc: "API design, testing and collections.",
+  },
+  {
+    label: "Node.js",
+    Icon: SiNodedotjs,
+    color: "#83cd29",
+    desc: "JavaScript runtime for APIs and services.",
+  },
+  {
+    label: "Fastify",
+    Icon: SiFastify,
+    color: "#2ee6a8",
+    desc: "Low-overhead Node framework for fast APIs.",
+  },
+  {
+    label: "Java",
+    Icon: FaJava,
+    color: "#e76f00",
+    desc: "Android and backend application development.",
+  },
 ];
 
 function SkillTile({ label, Icon, color, desc, index }: Skill & { index: number }) {

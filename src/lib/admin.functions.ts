@@ -84,4 +84,3 @@ export const adminDeleteProject = createServerFn({ method: "POST" })
     const { deleteProject } = await import("./admin-data.server");
     return deleteProject(data.id);
   });
-

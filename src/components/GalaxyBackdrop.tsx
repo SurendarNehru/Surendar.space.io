@@ -10,13 +10,7 @@ const SPIN = 1.25;
 const CORE = new THREE.Color("#ffe6b0");
 const EDGE = new THREE.Color("#2a44ff");
 
-function BackdropPoints({
-  reduced,
-  perf,
-}: {
-  reduced: boolean;
-  perf: "high" | "medium" | "low";
-}) {
+function BackdropPoints({ reduced, perf }: { reduced: boolean; perf: "high" | "medium" | "low" }) {
   const ref = useRef<THREE.Points>(null);
   const mouse = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
 

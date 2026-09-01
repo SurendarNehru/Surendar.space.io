@@ -74,10 +74,7 @@ export function SkyThemeProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const value = useMemo(
-    () => ({ theme, mode, setMode, toggle }),
-    [theme, mode, setMode, toggle],
-  );
+  const value = useMemo(() => ({ theme, mode, setMode, toggle }), [theme, mode, setMode, toggle]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

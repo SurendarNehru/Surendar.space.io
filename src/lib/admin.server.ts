@@ -40,8 +40,7 @@ export async function login(username: string, password: string): Promise<string>
   const expectedPass = process.env.ADMIN_PASSWORD;
   if (!expectedUser || !expectedPass) throw new Error("Admin credentials are not configured.");
 
-  const ok =
-    safeEqual(username.trim(), expectedUser) && safeEqual(password, expectedPass);
+  const ok = safeEqual(username.trim(), expectedUser) && safeEqual(password, expectedPass);
   if (!ok) throw new Error("Invalid username or password.");
 
   const payload = `${expectedUser}.${Date.now() + TOKEN_TTL_MS}`;

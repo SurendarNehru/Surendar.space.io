@@ -28,7 +28,13 @@ import {
   PromptInputSubmit,
 } from "@/components/ai-elements/prompt-input";
 import { Shimmer } from "@/components/ai-elements/shimmer";
-import { Tool, ToolHeader, ToolContent, ToolInput, ToolOutput } from "@/components/ai-elements/tool";
+import {
+  Tool,
+  ToolHeader,
+  ToolContent,
+  ToolInput,
+  ToolOutput,
+} from "@/components/ai-elements/tool";
 import { GlassCard } from "@/components/GlassCard";
 import { LivePreview } from "@/components/admin/LivePreview";
 import { PromptPresets } from "@/components/PromptPresets";
@@ -43,7 +49,6 @@ import {
   adminLogin,
   adminSetContent,
 } from "@/lib/admin.functions";
-
 
 const TOKEN_KEY = "admin-token";
 
@@ -105,11 +110,7 @@ function AdminPage() {
     );
   }
 
-  return token ? (
-    <Dashboard token={token} onSignOut={signOut} />
-  ) : (
-    <LoginForm onSuccess={signIn} />
-  );
+  return token ? <Dashboard token={token} onSignOut={signOut} /> : <LoginForm onSuccess={signIn} />;
 }
 
 function LoginForm({ onSuccess }: { onSuccess: (token: string) => void }) {
@@ -192,7 +193,6 @@ function Dashboard({ token, onSignOut }: { token: string; onSignOut: () => void 
 
   return (
     <section className="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6 sm:pt-8">
-
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
@@ -220,7 +220,6 @@ function Dashboard({ token, onSignOut }: { token: string; onSignOut: () => void 
             { id: "projects", label: "Projects", icon: Code2 },
             { id: "content", label: "Site copy", icon: Type },
           ] as const
-
         ).map((t) => {
           const Icon = t.icon;
           const active = tab === t.id;
@@ -254,7 +253,6 @@ function Dashboard({ token, onSignOut }: { token: string; onSignOut: () => void 
         {tab === "projects" && <ProjectsPanel token={token} />}
         {tab === "content" && <ContentPanel token={token} />}
       </div>
-
     </section>
   );
 }
@@ -282,92 +280,93 @@ function AiEditor({ token }: { token: string }) {
     <div className="grid gap-4 xl:grid-cols-2">
       <GlassCard className="!p-0">
         <div className="flex h-[65vh] min-h-[420px] flex-col">
+          <Conversation className="flex-1">
+            <ConversationContent className="gap-4">
+              {messages.length === 0 ? (
+                <ConversationEmptyState
+                  icon={<Bot className="h-6 w-6 text-white/70" />}
+                  title="DOSAAA, your site editor"
+                  description="Try: “change the hero quote”, “add a project called Aurora”, “make the accent color gold and headings wider”, “restyle the cards with softer corners”. Content and UI/UX both update live in the preview."
+                />
+              ) : (
+                messages.map((m) => (
+                  <Message key={m.id} from={m.role}>
+                    <MessageContent>
+                      {m.parts.map((part, i) => {
+                        if (part.type === "text") {
+                          return m.role === "assistant" ? (
+                            <MessageResponse key={i}>{part.text}</MessageResponse>
+                          ) : (
+                            <span key={i}>{part.text}</span>
+                          );
+                        }
+                        if (part.type.startsWith("tool-")) {
+                          const p = part as never as {
+                            type: string;
+                            state:
+                              | "input-streaming"
+                              | "input-available"
+                              | "output-available"
+                              | "output-error";
+                            input?: unknown;
+                            output?: unknown;
+                            errorText?: string;
+                          };
+                          return (
+                            <Tool key={i} defaultOpen={false}>
+                              <ToolHeader type={p.type as `tool-${string}`} state={p.state} />
+                              <ToolContent>
+                                <ToolInput input={p.input} />
+                                <ToolOutput
+                                  output={
+                                    p.output ? (
+                                      <pre className="overflow-x-auto text-xs">
+                                        {JSON.stringify(p.output, null, 2)}
+                                      </pre>
+                                    ) : undefined
+                                  }
+                                  errorText={p.errorText}
+                                />
+                              </ToolContent>
+                            </Tool>
+                          );
+                        }
+                        return null;
+                      })}
+                    </MessageContent>
+                  </Message>
+                ))
+              )}
+              {status === "submitted" && <Shimmer className="text-sm">DOSAAA is thinking…</Shimmer>}
+              {error && (
+                <p role="alert" className="text-sm text-red-300">
+                  {error.message}
+                </p>
+              )}
+            </ConversationContent>
+            <ConversationScrollButton />
+          </Conversation>
 
-        <Conversation className="flex-1">
-          <ConversationContent className="gap-4">
-            {messages.length === 0 ? (
-              <ConversationEmptyState
-                icon={<Bot className="h-6 w-6 text-white/70" />}
-                title="DOSAAA, your site editor"
-                description="Try: “change the hero quote”, “add a project called Aurora”, “make the accent color gold and headings wider”, “restyle the cards with softer corners”. Content and UI/UX both update live in the preview."
+          <div className="border-t border-white/10 p-3">
+            <PromptInput
+              onSubmit={(_message, event) => {
+                event.preventDefault();
+                const text = input.trim();
+                if (!text || busy) return;
+                setInput("");
+                void sendMessage({ text });
+              }}
+            >
+              <PromptInputTextarea
+                value={input}
+                onChange={(e) => setInput(e.currentTarget.value)}
+                placeholder="Tell DOSAAA what to change on the site…"
               />
-            ) : (
-              messages.map((m) => (
-                <Message key={m.id} from={m.role}>
-                  <MessageContent>
-                    {m.parts.map((part, i) => {
-                      if (part.type === "text") {
-                        return m.role === "assistant" ? (
-                          <MessageResponse key={i}>{part.text}</MessageResponse>
-                        ) : (
-                          <span key={i}>{part.text}</span>
-                        );
-                      }
-                      if (part.type.startsWith("tool-")) {
-                        const p = part as never as {
-                          type: string;
-                          state: "input-streaming" | "input-available" | "output-available" | "output-error";
-                          input?: unknown;
-                          output?: unknown;
-                          errorText?: string;
-                        };
-                        return (
-                          <Tool key={i} defaultOpen={false}>
-                            <ToolHeader type={p.type as `tool-${string}`} state={p.state} />
-                            <ToolContent>
-                              <ToolInput input={p.input} />
-                              <ToolOutput
-                                output={
-                                  p.output ? (
-                                    <pre className="overflow-x-auto text-xs">
-                                      {JSON.stringify(p.output, null, 2)}
-                                    </pre>
-                                  ) : undefined
-                                }
-                                errorText={p.errorText}
-                              />
-                            </ToolContent>
-                          </Tool>
-                        );
-                      }
-                      return null;
-                    })}
-                  </MessageContent>
-                </Message>
-              ))
-            )}
-            {status === "submitted" && (
-              <Shimmer className="text-sm">DOSAAA is thinking…</Shimmer>
-            )}
-            {error && (
-              <p role="alert" className="text-sm text-red-300">
-                {error.message}
-              </p>
-            )}
-          </ConversationContent>
-          <ConversationScrollButton />
-        </Conversation>
-
-        <div className="border-t border-white/10 p-3">
-          <PromptInput
-            onSubmit={(_message, event) => {
-              event.preventDefault();
-              const text = input.trim();
-              if (!text || busy) return;
-              setInput("");
-              void sendMessage({ text });
-            }}
-          >
-            <PromptInputTextarea
-              value={input}
-              onChange={(e) => setInput(e.currentTarget.value)}
-              placeholder="Tell DOSAAA what to change on the site…"
-            />
-            <PromptInputFooter className="justify-end">
-              <PromptInputSubmit status={status} disabled={!input.trim() && !busy} />
-            </PromptInputFooter>
-          </PromptInput>
-        </div>
+              <PromptInputFooter className="justify-end">
+                <PromptInputSubmit status={status} disabled={!input.trim() && !busy} />
+              </PromptInputFooter>
+            </PromptInput>
+          </div>
         </div>
       </GlassCard>
 
@@ -430,7 +429,6 @@ function ProjectsPanel({ token }: { token: string }) {
     </div>
   );
 }
-
 
 function PostsPanel({ token }: { token: string }) {
   const queryClient = useQueryClient();
@@ -602,4 +600,3 @@ function ContentPanel({ token }: { token: string }) {
     </div>
   );
 }
-

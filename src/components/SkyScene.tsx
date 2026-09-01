@@ -1,7 +1,13 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion, usePerfMode } from "./Starfield";
 
-type Cloud = { x: number; y: number; z: number; r: number; puffs: { dx: number; dy: number; r: number }[] };
+type Cloud = {
+  x: number;
+  y: number;
+  z: number;
+  r: number;
+  puffs: { dx: number; dy: number; r: number }[];
+};
 type Bird = { x: number; y: number; z: number; v: number; p: number; s: number };
 type Mote = { x: number; y: number; z: number; r: number; p: number };
 

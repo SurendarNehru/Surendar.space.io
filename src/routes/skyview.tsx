@@ -38,9 +38,7 @@ function LoadingOverlay({ visible }: { visible: boolean }) {
         <div className="absolute inset-0 rounded-full border border-[#0b2545]/20" />
         <div className="absolute inset-0 animate-spin rounded-full border-t border-[#0b2545]/70" />
       </div>
-      <p className="text-xs uppercase tracking-[0.35em] text-[#0b2545]/70">
-        Clearing the sky
-      </p>
+      <p className="text-xs uppercase tracking-[0.35em] text-[#0b2545]/70">Clearing the sky</p>
     </div>
   );
 }
@@ -56,9 +54,7 @@ function Skyview() {
       </Suspense>
       <LoadingOverlay visible={!ready} />
       <div className="pointer-events-none absolute inset-x-0 bottom-6 flex flex-col items-center gap-2 px-4 text-center sm:bottom-8">
-        <p className="text-xs uppercase tracking-[0.3em] text-[#0b2545]/70">
-          Skyview
-        </p>
+        <p className="text-xs uppercase tracking-[0.3em] text-[#0b2545]/70">Skyview</p>
         <p className="text-xs text-[#0b2545]/60 sm:text-sm">
           Drag to pan · Pinch to zoom · Move to shift the light
         </p>

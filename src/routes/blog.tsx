@@ -38,9 +38,7 @@ function Blog() {
     <section className="mx-auto max-w-3xl px-6 py-24">
       <p className="text-xs uppercase tracking-[0.3em] text-white/50">Blog</p>
       <h1 className="mt-3 text-5xl font-semibold text-white">Tech feed</h1>
-      <p className="mt-3 text-sm text-white/60">
-        Real-time headlines from across the tech world.
-      </p>
+      <p className="mt-3 text-sm text-white/60">Real-time headlines from across the tech world.</p>
       <div className="mt-10 space-y-4">
         {isLoading &&
           [0, 1, 2, 3].map((i) => (
@@ -52,9 +50,7 @@ function Blog() {
 
         {!isLoading && (!data || data.length === 0) && (
           <GlassCard className="!p-6">
-            <p className="text-sm text-white/60">
-              Tech headlines are unavailable right now.
-            </p>
+            <p className="text-sm text-white/60">Tech headlines are unavailable right now.</p>
           </GlassCard>
         )}
 
@@ -64,10 +60,10 @@ function Blog() {
               <span className="truncate">{p.source}</span>
               <time dateTime={p.publishedAt}>{formatDate(p.publishedAt)}</time>
             </div>
-            <h2 className="mt-1 font-display text-base font-semibold leading-snug text-white sm:text-lg">{p.title}</h2>
-            {p.excerpt && (
-              <p className="mt-2 text-sm leading-relaxed text-white/65">{p.excerpt}</p>
-            )}
+            <h2 className="mt-1 font-display text-base font-semibold leading-snug text-white sm:text-lg">
+              {p.title}
+            </h2>
+            {p.excerpt && <p className="mt-2 text-sm leading-relaxed text-white/65">{p.excerpt}</p>}
             <a
               href={p.url}
               target="_blank"

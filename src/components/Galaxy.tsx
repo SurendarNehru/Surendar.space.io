@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import { useReducedMotion, usePerfMode } from "./Starfield";
-
 
 const ARMS = 4;
 const RADIUS = 6;
@@ -82,13 +81,7 @@ function GalaxyPoints({
   const ref = useRef<THREE.Points>(null);
   const { camera, size } = useThree();
 
-  const count = reduced
-    ? 12000
-    : perf === "low"
-      ? 12000
-      : perf === "medium"
-        ? 28000
-        : 50000;
+  const count = reduced ? 12000 : perf === "low" ? 12000 : perf === "medium" ? 28000 : 50000;
 
   const mouse = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
 
@@ -102,10 +95,7 @@ function GalaxyPoints({
       const spin = r * SPIN;
 
       const rx =
-        Math.pow(Math.random(), RANDOM_POW) *
-        (Math.random() < 0.5 ? 1 : -1) *
-        RANDOMNESS *
-        r;
+        Math.pow(Math.random(), RANDOM_POW) * (Math.random() < 0.5 ? 1 : -1) * RANDOMNESS * r;
       const ry =
         Math.pow(Math.random(), RANDOM_POW) *
         (Math.random() < 0.5 ? 1 : -1) *
@@ -113,10 +103,7 @@ function GalaxyPoints({
         r *
         0.35;
       const rz =
-        Math.pow(Math.random(), RANDOM_POW) *
-        (Math.random() < 0.5 ? 1 : -1) *
-        RANDOMNESS *
-        r;
+        Math.pow(Math.random(), RANDOM_POW) * (Math.random() < 0.5 ? 1 : -1) * RANDOMNESS * r;
 
       pos[i3] = Math.cos(branch + spin) * r + rx;
       pos[i3 + 1] = ry;
@@ -156,8 +143,7 @@ function GalaxyPoints({
     const onPointer = (e: PointerEvent) => setFromXY(e.clientX, e.clientY);
     const onTouch = (e: TouchEvent) => {
       // Skip when pinch-zoom is happening (2+ fingers)
-      if (e.touches.length === 1)
-        setFromXY(e.touches[0].clientX, e.touches[0].clientY);
+      if (e.touches.length === 1) setFromXY(e.touches[0].clientX, e.touches[0].clientY);
     };
     window.addEventListener("pointermove", onPointer, { passive: true });
     window.addEventListener("touchmove", onTouch, { passive: true });
@@ -196,7 +182,7 @@ function GalaxyPoints({
     }
   });
 
-  const onDouble = (e: any) => {
+  const onDouble = (e: ThreeEvent<MouseEvent>) => {
     e.stopPropagation();
     const p: THREE.Vector3 = e.point.clone();
     const dir = p.clone().normalize().multiplyScalar(2.5);
@@ -205,22 +191,13 @@ function GalaxyPoints({
     focusT.current = 0;
   };
 
-  const pointSize =
-    perf === "low" ? 0.02 : perf === "medium" ? 0.017 : 0.015;
+  const pointSize = perf === "low" ? 0.02 : perf === "medium" ? 0.017 : 0.015;
 
   return (
     <points ref={ref} onDoubleClick={onDouble}>
       <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-          count={count}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          args={[colors, 3]}
-          count={count}
-        />
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} count={count} />
+        <bufferAttribute attach="attributes-color" args={[colors, 3]} count={count} />
       </bufferGeometry>
       <pointsMaterial
         size={pointSize}
@@ -310,7 +287,6 @@ function Comets({ reduced }: { reduced: boolean }) {
 }
 
 export function Galaxy({ onReady }: { onReady?: () => void }) {
-
   const reduced = useReducedMotion();
   const perf = usePerfMode();
   const dprMax = perf === "low" ? 1 : perf === "medium" ? 1.5 : 2;

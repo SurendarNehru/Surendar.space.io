@@ -4,11 +4,13 @@
 @import "tw-animate-css";
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
-
 
 @custom-variant dark (&:is(.dark *));
 
@@ -152,56 +154,138 @@
 }
 
 /* Daytime sky theme: dark ink on bright sky */
-.day-mode body { background-color: #cfe6f7; }
+.day-mode body {
+  background-color: #cfe6f7;
+}
 
-.day-mode .text-white { color: #0b2545; }
-.day-mode .text-white\/90 { color: rgb(11 37 69 / 0.92); }
-.day-mode .text-white\/80 { color: rgb(11 37 69 / 0.85); }
-.day-mode .text-white\/70 { color: rgb(11 37 69 / 0.78); }
-.day-mode .text-white\/60 { color: rgb(11 37 69 / 0.7); }
-.day-mode .text-white\/50 { color: rgb(11 37 69 / 0.6); }
+.day-mode .text-white {
+  color: #0b2545;
+}
+.day-mode .text-white\/90 {
+  color: rgb(11 37 69 / 0.92);
+}
+.day-mode .text-white\/80 {
+  color: rgb(11 37 69 / 0.85);
+}
+.day-mode .text-white\/70 {
+  color: rgb(11 37 69 / 0.78);
+}
+.day-mode .text-white\/60 {
+  color: rgb(11 37 69 / 0.7);
+}
+.day-mode .text-white\/50 {
+  color: rgb(11 37 69 / 0.6);
+}
 
-.day-mode .bg-black\/40 { background-color: rgb(255 255 255 / 0.35); }
-.day-mode .bg-white\/10 { background-color: rgb(255 255 255 / 0.5); }
-.day-mode .bg-white\/5 { background-color: rgb(255 255 255 / 0.42); }
-.day-mode .bg-white\/\[0\.04\] { background-color: rgb(255 255 255 / 0.42); }
-.day-mode .bg-white\/80 { background-color: #0b2545; }
+.day-mode .bg-black\/40 {
+  background-color: rgb(255 255 255 / 0.35);
+}
+.day-mode .bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.5);
+}
+.day-mode .bg-white\/5 {
+  background-color: rgb(255 255 255 / 0.42);
+}
+.day-mode .bg-white\/\[0\.04\] {
+  background-color: rgb(255 255 255 / 0.42);
+}
+.day-mode .bg-white\/80 {
+  background-color: #0b2545;
+}
 
-.day-mode .border-white\/10 { border-color: rgb(11 37 69 / 0.14); }
-.day-mode .border-white\/15 { border-color: rgb(11 37 69 / 0.18); }
-.day-mode .border-white\/20 { border-color: rgb(11 37 69 / 0.22); }
-.day-mode .border-white\/25 { border-color: rgb(11 37 69 / 0.25); }
+.day-mode .border-white\/10 {
+  border-color: rgb(11 37 69 / 0.14);
+}
+.day-mode .border-white\/15 {
+  border-color: rgb(11 37 69 / 0.18);
+}
+.day-mode .border-white\/20 {
+  border-color: rgb(11 37 69 / 0.22);
+}
+.day-mode .border-white\/25 {
+  border-color: rgb(11 37 69 / 0.25);
+}
 
-.day-mode .hover\:bg-white\/15:hover { background-color: rgb(255 255 255 / 0.6); }
-.day-mode .hover\:bg-white\/10:hover { background-color: rgb(255 255 255 / 0.55); }
-.day-mode .hover\:text-white:hover { color: #06172e; }
+.day-mode .hover\:bg-white\/15:hover {
+  background-color: rgb(255 255 255 / 0.6);
+}
+.day-mode .hover\:bg-white\/10:hover {
+  background-color: rgb(255 255 255 / 0.55);
+}
+.day-mode .hover\:text-white:hover {
+  color: #06172e;
+}
 
 /* Daytime sky theme — extra colour mappings so every text/surface utility
    used on the site keeps readable contrast on the bright sky. */
-.day-mode body { background-color: #d7ecfb; }
+.day-mode body {
+  background-color: #d7ecfb;
+}
 
-.day-mode .text-white\/85 { color: rgb(11 37 69 / 0.88); }
-.day-mode .text-white\/75 { color: rgb(11 37 69 / 0.8); }
-.day-mode .text-white\/65 { color: rgb(11 37 69 / 0.74); }
-.day-mode .text-white\/55 { color: rgb(11 37 69 / 0.66); }
-.day-mode .text-white\/45 { color: rgb(11 37 69 / 0.58); }
-.day-mode .text-white\/40 { color: rgb(11 37 69 / 0.55); }
-.day-mode .text-white\/30 { color: rgb(11 37 69 / 0.45); }
-.day-mode .text-\[\#0b0b14\] { color: #f6fbff; }
+.day-mode .text-white\/85 {
+  color: rgb(11 37 69 / 0.88);
+}
+.day-mode .text-white\/75 {
+  color: rgb(11 37 69 / 0.8);
+}
+.day-mode .text-white\/65 {
+  color: rgb(11 37 69 / 0.74);
+}
+.day-mode .text-white\/55 {
+  color: rgb(11 37 69 / 0.66);
+}
+.day-mode .text-white\/45 {
+  color: rgb(11 37 69 / 0.58);
+}
+.day-mode .text-white\/40 {
+  color: rgb(11 37 69 / 0.55);
+}
+.day-mode .text-white\/30 {
+  color: rgb(11 37 69 / 0.45);
+}
+.day-mode .text-\[\#0b0b14\] {
+  color: #f6fbff;
+}
 
-.day-mode .bg-white\/90 { background-color: #0b2545; }
-.day-mode .bg-white\/\[0\.06\] { background-color: rgb(255 255 255 / 0.46); }
-.day-mode .bg-white\/\[0\.03\] { background-color: rgb(255 255 255 / 0.38); }
-.day-mode .bg-white\/15 { background-color: rgb(255 255 255 / 0.55); }
-.day-mode .bg-\[\#050508\] { background-color: #d7ecfb; }
-.day-mode .bg-\[\#0b0b14\] { background-color: rgb(255 255 255 / 0.5); }
+.day-mode .bg-white\/90 {
+  background-color: #0b2545;
+}
+.day-mode .bg-white\/\[0\.06\] {
+  background-color: rgb(255 255 255 / 0.46);
+}
+.day-mode .bg-white\/\[0\.03\] {
+  background-color: rgb(255 255 255 / 0.38);
+}
+.day-mode .bg-white\/15 {
+  background-color: rgb(255 255 255 / 0.55);
+}
+.day-mode .bg-\[\#050508\] {
+  background-color: #d7ecfb;
+}
+.day-mode .bg-\[\#0b0b14\] {
+  background-color: rgb(255 255 255 / 0.5);
+}
 
-.day-mode .border-white\/70 { border-color: rgb(11 37 69 / 0.5); }
-.day-mode .border-white\/30 { border-color: rgb(11 37 69 / 0.28); }
-.day-mode .hover\:bg-white:hover { background-color: #06172e; }
-.day-mode .hover\:bg-white\/5:hover { background-color: rgb(255 255 255 / 0.5); }
-.day-mode input, .day-mode textarea { color: #0b2545; }
-.day-mode input::placeholder, .day-mode textarea::placeholder { color: rgb(11 37 69 / 0.5); }
+.day-mode .border-white\/70 {
+  border-color: rgb(11 37 69 / 0.5);
+}
+.day-mode .border-white\/30 {
+  border-color: rgb(11 37 69 / 0.28);
+}
+.day-mode .hover\:bg-white:hover {
+  background-color: #06172e;
+}
+.day-mode .hover\:bg-white\/5:hover {
+  background-color: rgb(255 255 255 / 0.5);
+}
+.day-mode input,
+.day-mode textarea {
+  color: #0b2545;
+}
+.day-mode input::placeholder,
+.day-mode textarea::placeholder {
+  color: rgb(11 37 69 / 0.5);
+}
 .day-mode [data-glass] {
   background: rgb(255 255 255 / 0.46);
   border-color: rgb(11 37 69 / 0.16);
@@ -236,7 +320,9 @@ h6,
   line-height: 1.35;
 }
 
-h1 { word-break: break-word; }
+h1 {
+  word-break: break-word;
+}
 
 /* Pixel-crisp rendering for the retro feel */
 html,
@@ -257,25 +343,59 @@ body {
   background-attachment: fixed;
 }
 
-.day-mode .text-white { color: #241b4a; }
-.day-mode .text-white\/90 { color: rgb(36 27 74 / 0.94); }
-.day-mode .text-white\/85 { color: rgb(36 27 74 / 0.9); }
-.day-mode .text-white\/80 { color: rgb(36 27 74 / 0.86); }
-.day-mode .text-white\/75 { color: rgb(36 27 74 / 0.82); }
-.day-mode .text-white\/70 { color: rgb(36 27 74 / 0.78); }
-.day-mode .text-white\/65 { color: rgb(36 27 74 / 0.74); }
-.day-mode .text-white\/60 { color: rgb(36 27 74 / 0.7); }
-.day-mode .text-white\/55 { color: rgb(36 27 74 / 0.66); }
-.day-mode .text-white\/50 { color: rgb(36 27 74 / 0.62); }
-.day-mode .text-white\/45 { color: rgb(36 27 74 / 0.58); }
-.day-mode .text-white\/40 { color: rgb(36 27 74 / 0.55); }
-.day-mode .text-white\/30 { color: rgb(36 27 74 / 0.45); }
-.day-mode .text-\[\#0b0b14\] { color: #fdf8ff; }
+.day-mode .text-white {
+  color: #241b4a;
+}
+.day-mode .text-white\/90 {
+  color: rgb(36 27 74 / 0.94);
+}
+.day-mode .text-white\/85 {
+  color: rgb(36 27 74 / 0.9);
+}
+.day-mode .text-white\/80 {
+  color: rgb(36 27 74 / 0.86);
+}
+.day-mode .text-white\/75 {
+  color: rgb(36 27 74 / 0.82);
+}
+.day-mode .text-white\/70 {
+  color: rgb(36 27 74 / 0.78);
+}
+.day-mode .text-white\/65 {
+  color: rgb(36 27 74 / 0.74);
+}
+.day-mode .text-white\/60 {
+  color: rgb(36 27 74 / 0.7);
+}
+.day-mode .text-white\/55 {
+  color: rgb(36 27 74 / 0.66);
+}
+.day-mode .text-white\/50 {
+  color: rgb(36 27 74 / 0.62);
+}
+.day-mode .text-white\/45 {
+  color: rgb(36 27 74 / 0.58);
+}
+.day-mode .text-white\/40 {
+  color: rgb(36 27 74 / 0.55);
+}
+.day-mode .text-white\/30 {
+  color: rgb(36 27 74 / 0.45);
+}
+.day-mode .text-\[\#0b0b14\] {
+  color: #fdf8ff;
+}
 
 .day-mode .bg-white\/90,
-.day-mode .bg-white\/80 { background-color: #4b2ea8; }
-.day-mode .border-white\/70 { border-color: #4b2ea8; }
-.day-mode .hover\:bg-white:hover { background-color: #3a2088; }
+.day-mode .bg-white\/80 {
+  background-color: #4b2ea8;
+}
+.day-mode .border-white\/70 {
+  border-color: #4b2ea8;
+}
+.day-mode .hover\:bg-white:hover {
+  background-color: #3a2088;
+}
 
 .day-mode [data-glass] {
   background: rgb(255 255 255 / 0.62);
@@ -287,21 +407,49 @@ body {
 .day-mode .bg-white\/15,
 .day-mode .bg-white\/\[0\.06\],
 .day-mode .bg-white\/\[0\.04\],
-.day-mode .bg-white\/\[0\.03\] { background-color: rgb(255 255 255 / 0.6); }
-.day-mode .bg-black\/40 { background-color: rgb(255 255 255 / 0.55); }
+.day-mode .bg-white\/\[0\.03\] {
+  background-color: rgb(255 255 255 / 0.6);
+}
+.day-mode .bg-black\/40 {
+  background-color: rgb(255 255 255 / 0.55);
+}
 .day-mode .bg-\[\#050508\],
-.day-mode .bg-\[\#0b0b14\] { background-color: rgb(255 255 255 / 0.6); }
-.day-mode .bg-\[\#07070c\]\/70 { background-color: rgb(255 255 255 / 0.66); }
+.day-mode .bg-\[\#0b0b14\] {
+  background-color: rgb(255 255 255 / 0.6);
+}
+.day-mode .bg-\[\#07070c\]\/70 {
+  background-color: rgb(255 255 255 / 0.66);
+}
 
-.day-mode .border-white\/10 { border-color: rgb(75 46 168 / 0.14); }
-.day-mode .border-white\/15 { border-color: rgb(75 46 168 / 0.18); }
-.day-mode .border-white\/20 { border-color: rgb(75 46 168 / 0.22); }
-.day-mode .border-white\/25 { border-color: rgb(75 46 168 / 0.26); }
-.day-mode .border-white\/30 { border-color: rgb(75 46 168 / 0.3); }
+.day-mode .border-white\/10 {
+  border-color: rgb(75 46 168 / 0.14);
+}
+.day-mode .border-white\/15 {
+  border-color: rgb(75 46 168 / 0.18);
+}
+.day-mode .border-white\/20 {
+  border-color: rgb(75 46 168 / 0.22);
+}
+.day-mode .border-white\/25 {
+  border-color: rgb(75 46 168 / 0.26);
+}
+.day-mode .border-white\/30 {
+  border-color: rgb(75 46 168 / 0.3);
+}
 
 .day-mode .hover\:bg-white\/15:hover,
 .day-mode .hover\:bg-white\/10:hover,
-.day-mode .hover\:bg-white\/5:hover { background-color: rgb(255 255 255 / 0.8); }
-.day-mode .hover\:text-white:hover { color: #150e33; }
-.day-mode input, .day-mode textarea { color: #241b4a; }
-.day-mode input::placeholder, .day-mode textarea::placeholder { color: rgb(36 27 74 / 0.5); }
+.day-mode .hover\:bg-white\/5:hover {
+  background-color: rgb(255 255 255 / 0.8);
+}
+.day-mode .hover\:text-white:hover {
+  color: #150e33;
+}
+.day-mode input,
+.day-mode textarea {
+  color: #241b4a;
+}
+.day-mode input::placeholder,
+.day-mode textarea::placeholder {
+  color: rgb(36 27 74 / 0.5);
+}

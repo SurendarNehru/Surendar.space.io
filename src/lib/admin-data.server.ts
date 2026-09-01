@@ -203,4 +203,3 @@ export async function deleteProject(id: string) {
   if (error) throw new Error(error.message);
   return { deleted: id };
 }
-

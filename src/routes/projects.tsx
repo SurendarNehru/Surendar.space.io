@@ -63,7 +63,9 @@ function Projects() {
               {p.tag && (
                 <div className="text-xs uppercase tracking-widest text-white/50">{p.tag}</div>
               )}
-              <h2 className="mt-2 font-display text-lg font-semibold text-white sm:text-xl">{p.name}</h2>
+              <h2 className="mt-2 font-display text-lg font-semibold text-white sm:text-xl">
+                {p.name}
+              </h2>
               <p className="mt-3 whitespace-pre-line text-white/70">{p.description}</p>
               {p.url && (
                 <a

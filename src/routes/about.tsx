@@ -41,9 +41,7 @@ function About() {
       </p>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         <GlassCard>
-          <h2 className="text-xl font-semibold text-white">
-            {t("about_do_heading", "What I do")}
-          </h2>
+          <h2 className="text-xl font-semibold text-white">{t("about_do_heading", "What I do")}</h2>
           <p className="mt-3 whitespace-pre-line text-white/70">
             {t(
               "about_do_body",

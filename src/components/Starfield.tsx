@@ -95,7 +95,7 @@ export function Starfield({ dim = false }: { dim?: boolean }) {
     let w = 0;
     let h = 0;
     let stars: Star[] = [];
-    let shooters: Shooter[] = [];
+    const shooters: Shooter[] = [];
     let raf = 0;
     let lastShoot = 0;
 
@@ -137,7 +137,6 @@ export function Starfield({ dim = false }: { dim?: boolean }) {
         };
       });
     };
-
 
     const setPointer = (cx: number, cy: number) => {
       pointerRef.current.tx = (cx / w - 0.5) * 2;
@@ -211,7 +210,6 @@ export function Starfield({ dim = false }: { dim?: boolean }) {
           ctx.lineTo(sx, sy + len + radius);
           ctx.stroke();
         }
-
       }
 
       // shooting stars
@@ -283,8 +281,7 @@ export function Starfield({ dim = false }: { dim?: boolean }) {
       className="pointer-events-none fixed inset-0 transition-opacity duration-700 ease-out"
       style={{
         zIndex: -10,
-        background:
-          "radial-gradient(ellipse at 30% 20%, #0a0a18 0%, #050508 55%, #030307 100%)",
+        background: "radial-gradient(ellipse at 30% 20%, #0a0a18 0%, #050508 55%, #030307 100%)",
         opacity: dim ? 0 : 1,
       }}
       aria-hidden

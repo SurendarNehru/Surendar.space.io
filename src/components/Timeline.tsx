@@ -33,9 +33,7 @@ export function Timeline() {
   return (
     <section className="relative mx-auto max-w-5xl px-6 py-24">
       <div className="mb-16 text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-          Trajectory
-        </p>
+        <p className="text-xs uppercase tracking-[0.3em] text-white/50">Trajectory</p>
         <h2 className="mt-3 text-4xl font-semibold text-white sm:text-5xl">
           Journey through the stars
         </h2>
@@ -58,20 +56,14 @@ export function Timeline() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="relative grid grid-cols-1 items-center gap-4 md:grid-cols-2"
               >
-                <div
-                  className={`${left ? "md:pr-12 md:text-right" : "md:col-start-2 md:pl-12"}`}
-                >
+                <div className={`${left ? "md:pr-12 md:text-right" : "md:col-start-2 md:pl-12"}`}>
                   <GlassCard className="inline-block !p-6 text-left">
                     <div className="text-xs font-medium tracking-widest text-white/60">
                       {it.year}
                     </div>
-                    <div className="mt-1 text-lg font-semibold text-white">
-                      {it.title}
-                    </div>
+                    <div className="mt-1 text-lg font-semibold text-white">{it.title}</div>
                     <div className="text-sm text-white/50">{it.place}</div>
-                    <p className="mt-3 text-sm leading-relaxed text-white/70">
-                      {it.desc}
-                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-white/70">{it.desc}</p>
                   </GlassCard>
                 </div>
                 <span className="absolute left-1/2 top-8 h-3 w-3 -translate-x-1/2 rounded-full bg-white " />

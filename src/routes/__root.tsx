@@ -24,7 +24,6 @@ const GalaxyBackdrop = lazy(() =>
   import("../components/GalaxyBackdrop").then((m) => ({ default: m.GalaxyBackdrop })),
 );
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
@@ -161,6 +160,5 @@ function RootComponent() {
         <Toaster position="bottom-center" />
       </SkyThemeProvider>
     </QueryClientProvider>
-
   );
 }

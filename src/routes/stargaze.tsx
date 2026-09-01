@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useCallback, useState } from "react";
 
-const Galaxy = lazy(() =>
-  import("../components/Galaxy").then((m) => ({ default: m.Galaxy })),
-);
+const Galaxy = lazy(() => import("../components/Galaxy").then((m) => ({ default: m.Galaxy })));
 
 export const Route = createFileRoute("/stargaze")({
   head: () => ({
@@ -17,8 +15,7 @@ export const Route = createFileRoute("/stargaze")({
       { property: "og:title", content: "Stargaze — Surendar" },
       {
         property: "og:description",
-        content:
-          "Interactive 3D galaxy — drag to orbit, pinch to zoom, double-click to focus.",
+        content: "Interactive 3D galaxy — drag to orbit, pinch to zoom, double-click to focus.",
       },
     ],
   }),
@@ -37,9 +34,7 @@ function LoadingOverlay({ visible }: { visible: boolean }) {
         <div className="absolute inset-0 rounded-full border border-white/15" />
         <div className="absolute inset-0 animate-spin rounded-full border-t border-white/70" />
       </div>
-      <p className="text-xs uppercase tracking-[0.35em] text-white/60">
-        Initializing galaxy
-      </p>
+      <p className="text-xs uppercase tracking-[0.35em] text-white/60">Initializing galaxy</p>
     </div>
   );
 }
@@ -55,9 +50,7 @@ function Stargaze() {
       </Suspense>
       <LoadingOverlay visible={!ready} />
       <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 text-center">
-        <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-          Stargaze
-        </p>
+        <p className="text-xs uppercase tracking-[0.3em] text-white/50">Stargaze</p>
         <p className="text-sm text-white/50">
           Drag to orbit · Pinch to zoom · Double-click a star to focus
         </p>

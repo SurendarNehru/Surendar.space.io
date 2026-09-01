@@ -169,8 +169,7 @@ export function DaySky({ dim = false }: { dim?: boolean }) {
       className="pointer-events-none fixed inset-0 transition-opacity duration-700 ease-out"
       style={{
         zIndex: -10,
-        background:
-          "linear-gradient(165deg, #cfe0fb 0%, #e6ecfb 38%, #f6f1ea 68%, #dfe7f7 100%)",
+        background: "linear-gradient(165deg, #cfe0fb 0%, #e6ecfb 38%, #f6f1ea 68%, #dfe7f7 100%)",
         opacity: dim ? 0 : 1,
       }}
       aria-hidden

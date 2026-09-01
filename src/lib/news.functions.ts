@@ -25,7 +25,6 @@ type NewsDataArticle = {
   category?: string[] | null;
 };
 
-
 /**
  * Live tech-world headlines from newsdata.io.
  * Runs server-side so the API key never reaches the browser.
@@ -64,7 +63,6 @@ export const getTechNews = createServerFn({ method: "GET" })
             .filter((k): k is string => typeof k === "string" && k.length < 26)
             .slice(0, 5),
         }));
-
     } catch {
       return [];
     }
@@ -90,4 +88,3 @@ export const techNewsFeedQueryOptions = queryOptions({
   refetchOnWindowFocus: true,
   refetchOnReconnect: true,
 });
-

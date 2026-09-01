@@ -39,8 +39,6 @@ Rules:
 - Keep copy professional and concise, matching the site's calm space theme.
 - After a change, reply with a one-line summary of exactly what changed.`;
 
-
-
 export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
@@ -184,7 +182,6 @@ export const Route = createFileRoute("/api/chat")({
             execute: async ({ id }) => data.deleteProject(id),
           }),
         };
-
 
         const gateway = createLovableAiGatewayProvider(key);
         const result = streamText({

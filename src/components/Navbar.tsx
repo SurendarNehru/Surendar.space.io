@@ -40,9 +40,6 @@ export function Navbar() {
     { to: "/admin", key: "nav_admin", label: "Admin", icon: Lock },
   ].map((l) => ({ ...l, label: label(l.key, l.label) }));
 
-
-
-
   return (
     <header className="sticky inset-x-0 top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-6 sm:py-4">
@@ -70,7 +67,6 @@ export function Navbar() {
             })}
           </ul>
         </div>
-
 
         <button
           type="button"

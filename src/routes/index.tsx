@@ -11,7 +11,6 @@ import { techNewsQueryOptions } from "../lib/news.functions";
 import { siteContentQueryOptions } from "../lib/content.functions";
 import { useSiteContent } from "../lib/use-site-content";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -75,7 +74,13 @@ function PostSkeleton() {
 
 function LatestPosts() {
   const [pollMs, setPollMs] = useState(60_000);
-  const { data: posts, isPending, isFetching, isError, refetch } = useQuery({
+  const {
+    data: posts,
+    isPending,
+    isFetching,
+    isError,
+    refetch,
+  } = useQuery({
     ...techNewsQueryOptions,
     refetchInterval: pollMs > 0 ? pollMs : false,
   });
@@ -122,9 +127,7 @@ function LatestPosts() {
   } else if (isError || !posts || posts.length === 0) {
     body = (
       <GlassCard className="!p-5">
-        <p className="text-sm text-white/60">
-          Tech headlines are unavailable right now.
-        </p>
+        <p className="text-sm text-white/60">Tech headlines are unavailable right now.</p>
         <button
           type="button"
           onClick={() => refetch()}
@@ -157,9 +160,7 @@ function LatestPosts() {
                     {formatDate(p.publishedAt)}
                   </time>
                 </div>
-                <h3 className="mt-1.5 text-lg font-semibold leading-snug text-white">
-                  {p.title}
-                </h3>
+                <h3 className="mt-1.5 text-lg font-semibold leading-snug text-white">{p.title}</h3>
                 {p.excerpt && (
                   <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-white/65">
                     {p.excerpt}
@@ -200,8 +201,6 @@ function LatestPosts() {
     </div>
   );
 }
-
-
 
 function Index() {
   const t = useSiteContent();
@@ -274,8 +273,6 @@ function Index() {
             </Link>
           </motion.div>
 
-
-
           {/* Skills — directly under the nameplate */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -314,15 +311,11 @@ function Index() {
         </motion.div>
       </section>
 
-
-
       {/* About / Process */}
       <section className="relative mx-auto max-w-6xl px-5 py-16 sm:px-6">
         <div className="grid gap-6 md:grid-cols-2">
           <GlassCard>
-            <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-              About
-            </p>
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50">About</p>
             <h2 className="mt-3 text-3xl font-semibold text-white">
               {t("about_heading", "A developer who moves like light")}
             </h2>
@@ -333,32 +326,47 @@ function Index() {
               )}
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-3 text-sm">
-              {["TypeScript", "React / R3F", "Node / Edge", "Postgres", "Motion", "Design Systems"].map(
-                (t) => (
-                  <li
-                    key={t}
-                    className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white/80"
-                  >
-                    {t}
-                  </li>
-                ),
-              )}
+              {[
+                "TypeScript",
+                "React / R3F",
+                "Node / Edge",
+                "Postgres",
+                "Motion",
+                "Design Systems",
+              ].map((t) => (
+                <li
+                  key={t}
+                  className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-white/80"
+                >
+                  {t}
+                </li>
+              ))}
             </ul>
           </GlassCard>
 
           <GlassCard>
-            <p className="text-xs uppercase tracking-[0.3em] text-white/50">
-              Process
-            </p>
+            <p className="text-xs uppercase tracking-[0.3em] text-white/50">Process</p>
             <h2 className="mt-3 text-3xl font-semibold text-white">
               {t("process_heading", "A tactical playbook")}
             </h2>
             <ol className="mt-6 space-y-4">
               {[
-                { t: "Chart the mission", d: "Understand the product, users, and constraints before writing a line." },
-                { t: "Engineer the core", d: "Ship a robust foundation — data, types, and boundaries first." },
-                { t: "Layer the light", d: "Add motion, texture, and interaction with intention, never noise." },
-                { t: "Measure & refine", d: "Instrument, benchmark, and polish until it feels effortless." },
+                {
+                  t: "Chart the mission",
+                  d: "Understand the product, users, and constraints before writing a line.",
+                },
+                {
+                  t: "Engineer the core",
+                  d: "Ship a robust foundation — data, types, and boundaries first.",
+                },
+                {
+                  t: "Layer the light",
+                  d: "Add motion, texture, and interaction with intention, never noise.",
+                },
+                {
+                  t: "Measure & refine",
+                  d: "Instrument, benchmark, and polish until it feels effortless.",
+                },
               ].map((s, i) => (
                 <li key={s.t} className="flex gap-4">
                   <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-xs font-medium text-white">
